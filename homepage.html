@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f5ff',
+                            100: '#e0eaff',
+                            200: '#c7d9ff',
+                            300: '#a4beff',
+                            400: '#7a96ff',
+                            500: '#5b6af9',
+                            600: '#4146eb',
+                            700: '#3538d2',
+                            800: '#2d31a8',
+                            900: '#2c3282',
+                            950: '#1a1d4c',
+                        },
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Add before </body> -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+    <!-- Swiper CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+
+
+    <!-- Primary Meta Tags -->
+    <title>Zeesonic Technology - Telecom, VOIP & Call Center Solutions</title>
+    <meta name="description"
+        content="Zeesonic Technology offers specialized solutions for telecom companies, VOIP providers, and call center businesses. Expert technical support, software installation, and security services.">
+    <meta name="keywords"
+        content="Telecom Solutions, VOIP Services, Call Center Support, Software Installation, Security Services, BPO Solutions, Vicidial Dialer">
+    <meta name="author" content="Zeesonic Technology">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Zeesonic Technology - Telecom, VOIP & Call Center Solutions">
+    <meta property="og:description"
+        content="Zeesonic Technology offers specialized solutions for telecom companies, VOIP providers, and call center businesses. Expert technical support, software installation, and security services.">
+    <meta property="og:url" content="https://www.zeesonictech.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.zeesonictech.com/assets/images/logo.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zeesonic Technology - Telecom, VOIP & Call Center Solutions">
+    <meta name="twitter:description"
+        content="Zeesonic Technology offers specialized solutions for telecom companies, VOIP providers, and call center businesses. Expert technical support, software installation, and security services.">
+    <meta name="twitter:image" content="https://www.zeesonictech.com/assets/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <style>
+        :root {
+            --primary-color: #4146eb;
+            --primary-dark: #2d31a8;
+            --primary-light: #c7d9ff;
+            --gradient-primary: linear-gradient(to top, #1a1d4c, #2c3282, #3538d2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Custom styles for the service cards flip effect */
+        .service-card {
+            perspective: 1000px;
+            height: 320px;
+        }
+
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .service-card:hover .service-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .service-card-front,
+        .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .service-card-back {
+            transform: rotateY(180deg);
+        }
+
+
+        /* Counter Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+        /* Clip Path for Diagonal Sections */
+
+
+        /* Improved Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Improved Mobile Menu */
+        .mobile-menu-open {
+            overflow: hidden;
+        }
+
+        /* Improved Focus States */
+        a:focus,
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Loading Animation */
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Improved Button Hover Effects */
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* Improved Card Hover Effects */
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Back to Top Button */
+
+
+        /* Improved Form Elements */
+        .form-input {
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        /* Improved Dropdown Menu */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="relative">
+        <nav class="sticky-header py-3 bg-white/80 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-4 lg:px-6 flex items-center justify-between relative">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-white z-10" aria-label="Zeesonic Technology Home">
+                    <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/">Home</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/about">About</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-gray-800 hover:text-primary-600 font-medium">
+                            Services
+                            <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 top-full mt-2 hidden group-hover:block bg-white border shadow-lg rounded-md w-[300px] z-50">
+                            <a href="/services/telecom-solutions"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Telecom Solutions</a>
+                            <a href="/services/voip-services" class="block px-4 py-3 text-sm hover:bg-gray-100">VOIP
+                                Services</a>
+                            <a href="/services/call-center-support"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Call Center Support</a>
+                            <a href="/services/software-installation"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Software Installation</a>
+                            <a href="/services/security-services"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Security Services</a>
+                        </div>
+                    </div>
+
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/bpo-solutions">BPO Solutions</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/testimonials">Testimonials</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/contact">Contact</a>
+
+                    <!-- Profile Button -->
+                    <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                        class="btn-primary inline-flex items-center justify-center gap-2 text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-6 py-2">
+                        Download Profile
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuButton" class="lg:hidden text-gray-800 hover:text-primary-600 z-20"
+                    aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" style="z-index: 9999999999 !important;"
+                    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 lg:hidden">
+                    <div class="flex justify-between items-center p-4 border-b">
+                        <a href="/" class="text-2xl font-bold">
+                            <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                        </a>
+                        <button id="closeMenu" class="text-gray-800 hover:text-primary-600" aria-label="Close menu">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-70px)]">
+                        <nav class="flex flex-col space-y-4">
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/">Home</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/about">About</a>
+
+                            <!-- Services Submenu -->
+                            <div>
+                                <p class="text-sm font-semibold text-gray-500 mb-2 px-4">Services</p>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/telecom-solutions">Telecom Solutions</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/voip-services">VOIP Services</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/call-center-support">Call Center Support</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/software-installation">Software Installation</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/security-services">Security Services</a>
+                            </div>
+
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/bpo-solutions">BPO Solutions</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/testimonials">Testimonials</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/contact">Contact</a>
+
+                            <!-- Profile Button -->
+                            <div class="pt-4">
+                                <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                                    class="btn-primary block text-center py-3 px-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-lg font-medium">
+                                    Download Company Profile
+                                </a>
+                            </div>
+
+                            <!-- Social Icons -->
+                            <div class="pt-4 flex justify-center space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-facebook-f text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-twitter text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-linkedin-in text-primary-600"></i>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <section id="home" class="relative min-h-screen overflow-hidden">
+            <div class="swiper bannerSwiper h-screen w-full">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide bg-cover bg-center relative flex items-center w-full justify-center h-screen"
+                        style="background-image: url('/assets/images/creative-businesspeople-with-mobile-laptop-digital-tablet-working-together-office_23-2148073312.jpg');">
+                        <div class="absolute inset-0 bg-black/60 z-10"></div>
+                        <div class="relative z-20 top-1/3 text-center h-full  mx-auto max-w-3xl px-4">
+                            <h1 class="text-4xl md:text-5xl text-white font-bold mb-4">Welcome to <span
+                                    class="text-blue-400">Zeesonic Technology</span></h1>
+                            <p class="text-lg text-gray-200 mb-6">
+                                We provide expert telecom, VOIP & call center solutions to grow your business.
+                            </p>
+                            <div class="flex justify-center gap-4 flex-wrap">
+                                <a href="#contact"
+                                    class="bg-blue-600 hover:bg-blue-700 px-6 py-3 text-white rounded-full font-semibold transition">Get
+                                    Free Consultation</a>
+                                <a href="#services"
+                                    class="border-2 border-white px-6 py-3 text-white rounded-full font-semibold hover:bg-white hover:text-black transition">Explore
+                                    Services</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide bg-cover bg-center relative flex items-center w-full justify-center h-screen"
+                        style="background-image: url('/assets/images/smiling-portrait-businesspeople-showing-thumb-up-sign_23-2148073314.jpg');">
+                        <div class="absolute inset-0 bg-black/60 z-10"></div>
+                        <div class="relative z-20 top-1/3 text-center h-full pmax-w-3xl px-4">
+                            <h1 class="text-4xl md:text-5xl text-white font-bold mb-4">Call Center & <span
+                                    class="text-blue-400">VOIP Solutions</span></h1>
+                            <p class="text-lg text-gray-200 mb-6">
+                                Enhance your customer communication with secure and scalable systems.
+                            </p>
+                            <div class="flex justify-center gap-4 flex-wrap">
+                                <a href="#contact"
+                                    class="bg-blue-600 hover:bg-blue-700 px-6 py-3 text-white rounded-full font-semibold transition">Get
+                                    Free Consultation</a>
+                                <a href="#services"
+                                    class="border-2 border-white px-6 py-3 text-white rounded-full font-semibold hover:bg-white hover:text-black transition">Explore
+                                    Services</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide bg-cover bg-center relative flex items-center w-full justify-center h-screen"
+                        style="background-image: url('/assets/images/group-business-people-working-together-conference_23-2148073302.jpg');">
+                        <div class="absolute inset-0 bg-black/60 z-10"></div>
+                        <div class="relative z-20 top-1/3 text-center h-full pmax-w-3xl px-4">
+                            <h1 class="text-4xl md:text-5xl text-white font-bold mb-4">Secure & <span
+                                    class="text-blue-400">Future-Ready</span></h1>
+                            <p class="text-lg text-gray-200 mb-6">
+                                Our cybersecurity experts ensure your systems are protected and optimized.
+                            </p>
+                            <div class="flex justify-center gap-4 flex-wrap">
+                                <a href="#contact"
+                                    class="bg-blue-600 hover:bg-blue-700 px-6 py-3 text-white rounded-full font-semibold transition">Get
+                                    Free Consultation</a>
+                                <a href="#services"
+                                    class="border-2 border-white px-6 py-3 text-white rounded-full font-semibold hover:bg-white hover:text-black transition">Explore
+                                    Services</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Swiper Pagination and Navigation -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4 lg:px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="relative">
+                            <img src="/assets/images/About.jpg"
+                                alt="About Zeesonic Technology" class="rounded-2xl shadow-xl w-full h-auto">
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-indigo-100 rounded-full z-[-1]"></div>
+                            <div class="absolute -top-6 -left-6 w-24 h-24 bg-indigo-200 rounded-full z-[-1]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inline-block rounded-full bg-indigo-100 px-3 py-1 text-sm text-indigo-700 mb-4">
+                            About Us</div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">Your Dedicated
+                            Partner in Next-Gen Telecom Solutions</h2>
+                        <p class="text-gray-700 text-lg mb-6">
+                            Welcome to Zeesonic Technology—your dedicated partner in next-gen telecom solutions, VOIP
+                            services, and technical support. We specialize in providing advanced services to telecom
+                            companies, VOIP providers, and call center businesses, focusing on seamless software
+                            installation, expert technical support, and cutting-edge security solutions.
+                        </p>
+                        <p class="text-gray-700 text-lg mb-8">
+                            At Zeesonic Technology, we understand the dynamic needs of the telecommunications and tech
+                            industries. Our mission is to empower your business with reliable, cost-effective, and
+                            secure technology solutions that help you stay ahead in an ever-evolving digital world.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-indigo-700 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Industry Expertise</h3>
+                                    <p class="text-gray-600">Deep knowledge and specialized skills in telecom and call
+                                        center technologies.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-indigo-700 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Reliability & Commitment</h3>
+                                    <p class="text-gray-600">Strong track record of uptime and operational excellence.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/about"
+                            class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-8 py-4 hover:shadow-lg transition-all duration-300">
+                            Learn More About Us
+                            <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="w-full py-20 relative bg-gray-50">
+            <div
+                class="absolute top-0 right-0 w-1/3 h-full bg-indigo-50 clip-path-polygon-[0_0,100%_0,100%_100%,25%_100%] z-0">
+            </div>
+            <div class="container px-4 lg:px-6 relative z-10 mx-auto">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="lg:w-2/5 space-y-6 lg:sticky lg:top-20 self-start">
+                        <div class="inline-block rounded-full bg-indigo-100 px-3 py-1 text-sm text-indigo-700 mb-2">Our
+                            Expertise</div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight">Specialized Solutions
+                            for Modern Communication</h2>
+                        <p class="text-gray-600 text-lg">We deliver cutting-edge technology solutions tailored for
+                            telecom companies, VOIP providers, and call center businesses.</p>
+                        <div class="pt-4">
+                            <a href="/services"
+                                class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-8 py-4 hover:shadow-lg transition-all duration-300">
+                                Explore All Services
+                                <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-3/5 w-full">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                            <div class="service-card group">
+                                <div class="service-card-inner">
+                                    <div class="service-card-front">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                                            <div
+                                                class="w-14 h-14 rounded-xl bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4 transform transition-transform group-hover:rotate-12">
+                                                <i class="fas fa-wifi w-7 h-7 text-white"></i>
+                                            </div>
+                                            <h3 class="text-xl font-bold mb-2">Telecom Solutions</h3>
+                                            <p class="text-gray-500 flex-grow">Enhance connectivity, scalability, and
+                                                efficiency across your telecom systems.</p>
+                                            <div class="mt-4 text-indigo-900 font-medium flex items-center">
+                                                Learn More
+                                                <i class="fas fa-chevron-right ml-1 h-4 w-4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service-card-back">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 rounded-2xl shadow-lg">
+                                            <h3 class="text-xl font-bold mb-3 text-white">Telecom Solutions</h3>
+                                            <ul class="space-y-2 text-indigo-100 flex-grow">
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Network Infrastructure
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Bandwidth Optimization
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Telecom API Integration
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Carrier Services
+                                                </li>
+                                            </ul>
+                                            <a href="/services/telecom-solutions"
+                                                class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 mt-4 bg-white text-white hover:bg-indigo-50">Get
+                                                Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-card group md:mt-12">
+                                <div class="service-card-inner">
+                                    <div class="service-card-front">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                                            <div
+                                                class="w-14 h-14 rounded-xl bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4 transform transition-transform group-hover:rotate-12">
+                                                <i class="fas fa-phone-alt w-7 h-7 text-white"></i>
+                                            </div>
+                                            <h3 class="text-xl font-bold mb-2">VOIP Services</h3>
+                                            <p class="text-gray-500 flex-grow">High-quality VOIP solutions designed to
+                                                improve business communications while reducing costs.</p>
+                                            <div class="mt-4 text-indigo-900 font-medium flex items-center">
+                                                Learn More
+                                                <i class="fas fa-chevron-right ml-1 h-4 w-4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service-card-back">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 rounded-2xl shadow-lg">
+                                            <h3 class="text-xl font-bold mb-3 text-white">VOIP Services</h3>
+                                            <ul class="space-y-2 text-indigo-100 flex-grow">
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> SIP Trunking
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Hosted PBX
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Video Conferencing
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Unified Communications
+                                                </li>
+                                            </ul>
+                                            <a href="/services/voip-services"
+                                                class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 mt-4 bg-white text-white hover:bg-indigo-50">Get
+                                                Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-card group">
+                                <div class="service-card-inner">
+                                    <div class="service-card-front">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                                            <div
+                                                class="w-14 h-14 rounded-xl bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4 transform transition-transform group-hover:rotate-12">
+                                                <i class="fas fa-headset w-7 h-7 text-white"></i>
+                                            </div>
+                                            <h3 class="text-xl font-bold mb-2">Call Center Support</h3>
+                                            <p class="text-gray-500 flex-grow">Exceptional technical support ensuring
+                                                your call center systems operate flawlessly.</p>
+                                            <div class="mt-4 text-indigo-900 font-medium flex items-center">
+                                                Learn More
+                                                <i class="fas fa-chevron-right ml-1 h-4 w-4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service-card-back">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 rounded-2xl shadow-lg">
+                                            <h3 class="text-xl font-bold mb-3 text-white">Call Center Support</h3>
+                                            <ul class="space-y-2 text-indigo-100 flex-grow">
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> IVR Systems
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Call Routing
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Analytics & Reporting
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Quality Monitoring
+                                                </li>
+                                            </ul>
+                                            <a href="/services/call-center-support"
+                                                class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 mt-4 bg-white text-white hover:bg-indigo-50">Get
+                                                Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-card group md:mt-12">
+                                <div class="service-card-inner">
+                                    <div class="service-card-front">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
+                                            <div
+                                                class="w-14 h-14 rounded-xl bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4 transform transition-transform group-hover:rotate-12">
+                                                <i class="fas fa-shield-alt w-7 h-7 text-white"></i>
+                                            </div>
+                                            <h3 class="text-xl font-bold mb-2">Security Services</h3>
+                                            <p class="text-gray-500 flex-grow">Comprehensive security services to
+                                                safeguard your sensitive data, networks, and systems.</p>
+                                            <div class="mt-4 text-indigo-900 font-medium flex items-center">
+                                                Learn More
+                                                <i class="fas fa-chevron-right ml-1 h-4 w-4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service-card-back">
+                                        <div
+                                            class="h-full flex flex-col w-full p-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 rounded-2xl shadow-lg">
+                                            <h3 class="text-xl font-bold mb-3 text-white">Security Services</h3>
+                                            <ul class="space-y-2 text-indigo-100 flex-grow">
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Threat Detection
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Encryption Solutions
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Compliance Management
+                                                </li>
+                                                <li class="flex items-center">
+                                                    <i class="fas fa-check mr-2 h-4 w-4"></i> Security Audits
+                                                </li>
+                                            </ul>
+                                            <a href="/services/security-services"
+                                                class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 mt-4 bg-white text-white hover:bg-indigo-50">Get
+                                                Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-4 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl text-white font-bold">Trusted Experts, Proven Results</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center mt-12">
+                    <div class="bg-white/30 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-briefcase text-orange-300 text-5xl mb-3"></i>
+                        <div class="counter text-4xl font-bold" data-end="10">0</div>
+                        <p class="text-gray-100 text-xl mt-2">Years Of Experience</p>
+                    </div>
+
+                    <div class="bg-white/30 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-layer-group text-orange-300 text-5xl mb-3"></i>
+                        <div class="counter text-4xl font-bold" data-end="100">0</div>
+                        <p class="text-gray-100 text-xl mt-2">Services We Offer</p>
+                    </div>
+
+                    <div class="bg-white/30 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-users text-orange-300 text-5xl mb-3"></i>
+                        <div class="counter text-4xl font-bold" data-end="50">0</div>
+                        <p class="text-gray-100 text-xl mt-2">Professionals</p>
+                    </div>
+
+                    <div class="bg-white/30 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+                        <i class="fas fa-smile text-orange-300 text-5xl mb-3"></i>
+
+                        <div class="counter text-4xl font-bold" data-end="1000">0</div>
+                        <p class="text-gray-100 text-xl mt-2">Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <p class="text-xl md:text-2xl font-medium">Your Trusted Partner</p>
+                <p class="mt-4 max-w-3xl mx-auto text-gray-300">
+                    At Zeesonic Technology, we understand the dynamic needs of the telecommunications and tech
+                    industries.
+                    Our mission is to empower your business with reliable, cost-effective, and secure technology
+                    solutions
+                    that help you stay ahead in an ever-evolving digital world.
+                </p>
+                <a href="/about"
+                    class="btn-primary inline-block mt-8 px-8 py-4 bg-yellow-500 text-black rounded-full font-medium hover:bg-yellow-400 transition-all duration-300">
+                    Learn More About Us
+                </a>
+            </div>
+        </section>
+        <script>
+            function animateCounter(el, endValue, duration = 2000) {
+                let startValue = 0;
+                let startTime = null;
+
+                function update(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    const value = Math.floor(progress * endValue);
+                    el.textContent = value;
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+
+                requestAnimationFrame(update);
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const counters = document.querySelectorAll(".counter");
+                counters.forEach(counter => {
+                    const endValue = parseInt(counter.getAttribute("data-end"), 10);
+                    animateCounter(counter, endValue);
+                });
+            });
+        </script>
+
+        <!-- Vicidial Dialer Services Section -->
+        <section class="py-20 px-4 bg-white">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="inline-block rounded-full bg-indigo-100 px-3 py-1 text-sm text-indigo-700 mb-4">
+                            Premium BPO Solution
+                        </div>
+                        <h2 class="text-4xl font-bold mb-6">Vicidial Dialer Services</h2>
+                        <p class="text-xl mb-6">Power Up Your Call Center with Zeesonic's Vicidial Dialer Solutions</p>
+                        <p class="text-gray-700 mb-8">
+                            Zeesonic offers fully customized and performance-optimized Vicidial dialer solutions to meet
+                            the demanding needs of modern contact centers. As an open-source, enterprise-grade call
+                            center suite, Vicidial enables your team to manage inbound and outbound calls efficiently,
+                            automate lead management, and improve customer engagement — all in one powerful platform.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-indigo-50 p-4 rounded-lg hover-card">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-check-circle text-green-600 mr-3 text-xl"></i>
+                                    <h3 class="font-semibold text-lg">Complete Installation & Setup</h3>
+                                </div>
+                                <p class="text-gray-700 text-sm">We handle everything — from server setup and Vicidial
+                                    installation to custom configuration.</p>
+                            </div>
+
+                            <div class="bg-indigo-50 p-4 rounded-lg hover-card">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-check-circle text-green-600 mr-3 text-xl"></i>
+                                    <h3 class="font-semibold text-lg">Customized Campaigns</h3>
+                                </div>
+                                <p class="text-gray-700 text-sm">We tailor Vicidial to your industry, workflow, and
+                                    goals with multiple campaign options.</p>
+                            </div>
+
+                            <div class="bg-indigo-50 p-4 rounded-lg hover-card">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-check-circle text-green-600 mr-3 text-xl"></i>
+                                    <h3 class="font-semibold text-lg">CRM Integration</h3>
+                                </div>
+                                <p class="text-gray-700 text-sm">Seamless integration with CRMs, APIs, and third-party
+                                    platforms for streamlined operations.</p>
+                            </div>
+
+                            <div class="bg-indigo-50 p-4 rounded-lg hover-card">
+                                <div class="flex items-center mb-3">
+                                    <i class="fas fa-check-circle text-green-600 mr-3 text-xl"></i>
+                                    <h3 class="font-semibold text-lg">Training & Support</h3>
+                                </div>
+                                <p class="text-gray-700 text-sm">Expert training for your agents and round-the-clock
+                                    technical support for uninterrupted operations.</p>
+                            </div>
+                        </div>
+
+                        <a href="/services/vicidial-dialer"
+                            class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-8 py-4 hover:shadow-lg transition-all duration-300">
+                            Get a Free Demo
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="order-1 lg:order-2 relative">
+                        <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="/assets/images/female-customer-support-operator-with-headset-smiling-with-collegues-background_484651-4649.jpg"
+                                alt="Vicidial Call Center Solution" class="w-full h-auto">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-indigo-900/80 via-transparent to-transparent">
+                            </div>
+                        </div>
+
+                        <div class="absolute -top-6 -right-6 w-32 h-32 bg-yellow-500/20 rounded-full blur-2xl z-0">
+                        </div>
+                        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-indigo-600/20 rounded-full blur-3xl z-0">
+                        </div>
+
+                        <div
+                            class="absolute bottom-8 right-8 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg z-20 max-w-xs">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white"></i>
+                                </div>
+                                <h4 class="font-bold text-indigo-900">Boost Performance</h4>
+                            </div>
+                            <p class="text-sm text-gray-700">Our Vicidial solutions ensure you get maximum results with
+                                minimal overhead, improving call connection rates by up to 45%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BPO Market Solutions Section -->
+        <section id="bpo-solutions" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-indigo-100 text-indigo-800 rounded-full">
+                        BPO Market Solutions
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
+                        Comprehensive BPO Solutions for Modern Businesses
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">
+                        Zeesonic Technology delivers end-to-end BPO solutions designed to optimize operations, reduce
+                        costs, and enhance customer experiences for businesses of all sizes.
+                    </p>
+                </div>
+
+                <!-- First Row of BPO Services -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="/assets/images/caucasian-handsome-man.jpg" alt="Customer Service BPO"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4">
+                                <i class="fas fa-headset text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Customer Service Outsourcing</h3>
+                            <p class="text-gray-600 mb-4">
+                                Deliver exceptional customer experiences with our trained professionals handling
+                                inquiries across multiple channels.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    24/7 Multilingual Support
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Omnichannel Communication
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Quality Monitoring & Analytics
+                                </li>
+                            </ul>
+                            <a href="/services/customer-service-bpo"
+                                class="text-indigo-700 font-medium flex items-center hover:text-indigo-900">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="/assets/images/technical-support-bpo.jpg" alt="Technical Support BPO"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4">
+                                <i class="fas fa-tools text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Technical Support Services</h3>
+                            <p class="text-gray-600 mb-4">
+                                Expert technical assistance for your customers with our specialized support teams and
+                                advanced troubleshooting.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Tiered Support Structure
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Remote Diagnostics
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Knowledge Base Management
+                                </li>
+                            </ul>
+                            <a href="/services/technical-support-bpo"
+                                class="text-indigo-700 font-medium flex items-center hover:text-indigo-900">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="/assets/images/back-office-bpo.jpg" alt="Back Office BPO"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4">
+                                <i class="fas fa-cogs text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Back Office Processing</h3>
+                            <p class="text-gray-600 mb-4">
+                                Streamline your administrative operations with our efficient back-office support
+                                services.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Data Entry & Processing
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Order Management
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Document Management
+                                </li>
+                            </ul>
+                            <a href="/services/back-office-bpo"
+                                class="text-indigo-700 font-medium flex items-center hover:text-indigo-900">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row of BPO Services -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="/assets/images/sales-lead-generation.jpg" alt="Sales and Lead Generation"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4">
+                                <i class="fas fa-bullhorn text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Sales & Lead Generation</h3>
+                            <p class="text-gray-600 mb-4">
+                                Boost your revenue with our targeted outbound sales campaigns and qualified lead
+                                generation services.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    B2B & B2C Outreach
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Appointment Setting
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Lead Qualification & Nurturing
+                                </li>
+                            </ul>
+                            <a href="/services/sales-lead-generation"
+                                class="text-indigo-700 font-medium flex items-center hover:text-indigo-900">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="/assets/images/outbound-calling.jpg" alt="Outbound Calling Services"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4">
+                                <i class="fas fa-phone-volume text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Outbound Calling Services</h3>
+                            <p class="text-gray-600 mb-4">
+                                Professional outbound call campaigns designed to maximize engagement and conversion
+                                rates.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Telemarketing Campaigns
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Market Research & Surveys
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Customer Retention Programs
+                                </li>
+                            </ul>
+                            <a href="/services/outbound-calling"
+                                class="text-indigo-700 font-medium flex items-center hover:text-indigo-900">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover-card">
+                        <div class="h-48 overflow-hidden">
+                            <img src="/assets/images/quality-assurance.jpg" alt="Quality Assurance & Monitoring"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 flex items-center justify-center mb-4">
+                                <i class="fas fa-clipboard-check text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Quality Assurance & Monitoring</h3>
+                            <p class="text-gray-600 mb-4">
+                                Ensure consistent service excellence with our comprehensive quality monitoring and
+                                improvement programs.
+                            </p>
+                            <ul class="space-y-2 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Call Monitoring & Scoring
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Performance Analytics
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check text-indigo-600 mr-2"></i>
+                                    Continuous Improvement Plans
+                                </li>
+                            </ul>
+                            <a href="/services/quality-assurance"
+                                class="text-indigo-700 font-medium flex items-center hover:text-indigo-900">
+                                Learn More
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BPO Solutions CTA Section -->
+                <div class="bg-gradient-to-r from-indigo-900 to-blue-800 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                        <div class="p-8 md:p-12 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold text-white mb-6">Ready to Transform Your Business Operations?
+                            </h3>
+                            <p class="text-indigo-100 mb-8">
+                                Partner with Zeesonic Technology for comprehensive BPO solutions that drive efficiency,
+                                reduce costs, and enhance customer satisfaction. Our tailored approach ensures your
+                                business needs are met with precision and expertise.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="/contact"
+                                    class="btn-primary inline-flex items-center justify-center whitespace-nowrap text-sm font-medium bg-white text-indigo-900 hover:bg-gray-100 rounded-full px-8 py-4 transition-all duration-300">
+                                    Schedule a Consultation
+                                </a>
+                                <a href="/services/bpo-solutions"
+                                    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium border-2 border-white text-white hover:bg-white/10 rounded-full px-8 py-4 transition-all duration-300">
+                                    Explore BPO Solutions
+                                </a>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <img src="/assets/images/bpo-team-collaboration.jpg" alt="BPO Team Collaboration"
+                                class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-indigo-900/20"></div>
+                            <div
+                                class="absolute bottom-8 right-8 bg-white/90 backdrop-blur-sm p-5 rounded-xl shadow-lg max-w-xs">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center">
+                                        <i class="fas fa-percentage text-white"></i>
+                                    </div>
+                                    <h4 class="font-bold text-indigo-900">Cost Reduction</h4>
+                                </div>
+                                <p class="text-sm text-gray-700">Our clients typically see a 30-40% reduction in
+                                    operational costs when implementing our BPO solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white relative">
+            <!-- Background pattern -->
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Heading -->
+                <div class="text-center mb-16">
+                    <span
+                        class="inline-block rounded-full bg-indigo-100 px-3 py-1 text-sm text-indigo-700 mb-2">Testimonials</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Real feedback from real clients. Hear what they
+                        have to say about our service and results.</p>
+                </div>
+
+                <!-- Swiper -->
+                <div class="swiper testimonialSwiper">
+                    <div class="swiper-wrapper pb-20">
+
+                        <!-- Reusable Testimonial Card -->
+                        <!-- Card 1 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white border border-gray-200 rounded-2xl shadow-lg p-5 h-full flex flex-col w-full justify-between">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden mr-4">
+                                        <img src="/assets/images/persom-1.jpg" alt="Sarah Johnson"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-lg">Sarah Johnson</p>
+                                        <p class="text-sm text-gray-500">CTO, Global Communications</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 flex-grow mb-6">Zeesonic Technology has been instrumental in
+                                    optimizing our telecom infrastructure. Their expertise and dedication to customer
+                                    service are unmatched.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <i class="fas fa-quote-right text-indigo-600 text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white border border-gray-200 rounded-2xl shadow-lg p-5 h-full flex flex-col w-full justify-between">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden mr-4">
+                                        <img src="/assets/images/testimonial-2.jpg" alt="Michael Chen"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-lg">Michael Chen</p>
+                                        <p class="text-sm text-gray-500">IT Director, VoiceNet Solutions</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 flex-grow mb-6">The security solutions provided by Zeesonic have
+                                    given us peace of mind. Their team is responsive and always available when we need
+                                    them.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <i class="fas fa-quote-right text-indigo-600 text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white border border-gray-200 rounded-2xl shadow-lg p-5 h-full flex flex-col w-full justify-between">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden mr-4">
+                                        <img src="/assets/images/testimonial-3.jpg" alt="Jennifer Lopez"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-lg">Jennifer Lopez</p>
+                                        <p class="text-sm text-gray-500">Operations Manager, CallTech BPO</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 flex-grow mb-6">Implementing Zeesonic's Vicidial solution
+                                    transformed our call center. Our efficiency improved by 40% and agent satisfaction
+                                    is higher than ever.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <i class="fas fa-quote-right text-indigo-600 text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white border border-gray-200 rounded-2xl shadow-lg p-5 h-full flex flex-col w-full justify-between">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden mr-4">
+                                        <img src="/assets/images/testimonial-4.jpg" alt="David Wilson"
+                                            class="w-full h-full object-cover" />
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-lg">David Wilson</p>
+                                        <p class="text-sm text-gray-500">CEO, TeleConnect Solutions</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 flex-grow mb-6">Zeesonic's BPO services have been a
+                                    game-changer. Their team integrated seamlessly with our processes and delivered
+                                    excellent results.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <i class="fas fa-quote-right text-indigo-600 text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev text-indigo-800"></div>
+                    <div class="swiper-button-next text-indigo-800"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+
+
+        <section id="contact" class="w-full py-20 bg-gray-50">
+            <div class="container px-4 lg:px-6 mx-auto">
+                <div class="flex flex-col items-center text-center mb-16">
+                    <div class="inline-block rounded-full bg-indigo-100 px-3 py-1 text-sm text-indigo-700 mb-2">
+                        Get In
+                        Touch</div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4">Contact Us
+                        Today</h2>
+                    <p class="max-w-2xl text-gray-600 text-lg">Have questions or ready to get started? Reach out
+                        to our
+                        team of experts.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                    <div class="lg:col-span-3 bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                        <form class="space-y-6" id="contactForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="name" class="text-sm font-medium text-gray-700">Full
+                                        Name</label>
+                                    <input id="name" name="name"
+                                        class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                                        placeholder="John Smith" required>
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="email" class="text-sm font-medium text-gray-700">Email
+                                        Address</label>
+                                    <input id="email" name="email"
+                                        class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                                        placeholder="john@example.com" type="email" required>
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="phone" class="text-sm font-medium text-gray-700">Phone
+                                        Number</label>
+                                    <input id="phone" name="phone"
+                                        class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                                        placeholder="+1 (555) 000-0000" type="tel">
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="company" class="text-sm font-medium text-gray-700">Company</label>
+                                    <input id="company" name="company"
+                                        class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                                        placeholder="Acme Inc.">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="service" class="text-sm font-medium text-gray-700">Service of
+                                    Interest</label>
+                                <select id="service" name="service"
+                                    class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                                    required>
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="telecom">Telecom Solutions</option>
+                                    <option value="voip">VOIP Services</option>
+                                    <option value="callcenter">Call Center Support</option>
+                                    <option value="security">Security Services</option>
+                                    <option value="vicidial">Vicidial Dialer</option>
+                                    <option value="bpo">BPO Solutions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="message" class="text-sm font-medium text-gray-700">Message</label>
+                                <textarea id="message" name="message" rows="5"
+                                    class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-colors"
+                                    placeholder="Tell us about your project or inquiry..." required></textarea>
+                            </div>
+                            <button type="submit"
+                                class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-8 py-4 w-full hover:shadow-lg transition-all duration-300">
+                                Submit Message
+                            </button>
+                        </form>
+                    </div>
+                    <div class="lg:col-span-2 space-y-8">
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                            <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-phone h-5 w-5 text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Phone</h4>
+                                        <p class="text-gray-600">+1 (555) 000-0000</p>
+                                        <p class="text-sm text-gray-500">Mon-Fri, 9am-5pm EST</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-envelope h-5 w-5 text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Email</h4>
+                                        <p class="text-gray-600">info@zeesonic.com</p>
+                                        <p class="text-gray-600">support@zeesonic.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt h-5 w-5 text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">Office</h4>
+                                        <p class="text-gray-600">123 Tech Plaza, Suite 500<br>San Francisco, CA
+                                            94103<br>United States</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-2xl overflow-hidden h-80 relative">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0952890806223!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjYiTiAxMjLCsDI1JzA5LjgiVw!5e0!3m2!1sen!2sus!4v1621436289000!5m2!1sen!2sus"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                title="Zeesonic Technology Office Location"></iframe>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-b from-transparent to-indigo-900/30 pointer-events-none">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                            <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" aria-label="Facebook"
+                                    class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+                                    <i class="fab fa-facebook-f text-indigo-800"></i>
+                                </a>
+                                <a href="#" aria-label="Twitter"
+                                    class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+                                    <i class="fab fa-twitter text-indigo-800"></i>
+                                </a>
+                                <a href="#" aria-label="Instagram"
+                                    class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+                                    <i class="fab fa-instagram text-indigo-800"></i>
+                                </a>
+                                <a href="#" aria-label="LinkedIn"
+                                    class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+                                    <i class="fab fa-linkedin-in text-indigo-800"></i>
+                                </a>
+                                <a href="#" aria-label="YouTube"
+                                    class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center hover:bg-indigo-200 transition-colors">
+                                    <i class="fab fa-youtube text-indigo-800"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 overflow-hidden">
+       
+        <div class="container relative mx-auto px-4 py-10 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Zeesonic Technology</h3>
+                        <p class="mb-6 text-sm md:text-base text-slate-300">Your dedicated partner in next-gen telecom
+                            solutions, VOIP services, and technical support for telecom companies, VOIP providers, and
+                            call center businesses.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" aria-label="Facebook"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Contact Info</h3>
+                        <ul class="space-y-3 text-sm md:text-base text-slate-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>123 Tech Plaza, Suite 500, San Francisco, CA 94103</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>+1 (555) 000-0000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-3 text-indigo-300"></i>
+                                <span>info@zeesonic.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock mt-1 mr-3 text-indigo-300"></i>
+                                <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Our Services</h3>
+                        <ul class="space-y-2 text-white">
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/telecom-solutions">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Telecom Solutions
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/voip-services">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>VOIP Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/call-center-support">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Call Center Support
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/software-installation">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Software
+                                    Installation
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/security-services">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Security Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/vicidial-dialer">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Vicidial Dialer
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Newsletter</h3>
+                        <p class="mb-6 text-slate-300">Subscribe to our newsletter to receive updates and industry
+                            insights.</p>
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <input type="email" placeholder="Your Email Address"
+                                    class="w-full px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-indigo-400 text-gray-800"
+                                    required>
+                            </div>
+                            <button type="submit"
+                                class="btn-primary w-full bg-white text-indigo-900 hover:bg-gray-100 font-medium py-3 px-4 rounded-full transition-all duration-300">
+                                Subscribe Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-700/50 text-center text-slate-400 text-sm">
+                <p>© 2025 Zeesonic Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper(".testimonialSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: false,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+        });
+        new Swiper(".bannerSwiper", {
+            loop: true,
+
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+
+        // Mobile Menu
+        document.getElementById("menuButton").addEventListener("click", function () {
+            document.getElementById("mobileMenu").classList.remove("translate-x-full");
+            document.body.classList.add("mobile-menu-open");
+        });
+
+        document.getElementById("closeMenu").addEventListener("click", function () {
+            document.getElementById("mobileMenu").classList.add("translate-x-full");
+            document.body.classList.remove("mobile-menu-open");
+        });
+
+        // Dropdown Menu
+        document.getElementById("dropdownButton").addEventListener("click", function () {
+            const dropdownMenu = document.getElementById("dropdownMenu");
+            const isActive = dropdownMenu.classList.contains("active");
+
+            if (isActive) {
+                dropdownMenu.classList.remove("active");
+                this.setAttribute("aria-expanded", "false");
+                this.querySelector("i").classList.remove("rotate-180");
+            } else {
+                dropdownMenu.classList.add("active");
+                this.setAttribute("aria-expanded", "true");
+                this.querySelector("i").classList.add("rotate-180");
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            const dropdownButton = document.getElementById("dropdownButton");
+            const dropdownMenu = document.getElementById("dropdownMenu");
+
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove("active");
+                dropdownButton.setAttribute("aria-expanded", "false");
+                dropdownButton.querySelector("i").classList.remove("rotate-180");
+            }
+        });
+
+        // Sticky Header
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector(".sticky-header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+
+
+
+
+        AOS.init();
+
+
+
+
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<div class="loader mr-2"></div> Sending...';
+            submitButton.disabled = true;
+
+            // Simulate form submission (replace with actual form submission)
+            setTimeout(() => {
+                // Reset form
+                this.reset();
+
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+
+                // Reset button
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }, 1500);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (document.body.classList.contains('mobile-menu-open')) {
+                        document.getElementById("mobileMenu").classList.add("translate-x-full");
+                        document.body.classList.remove("mobile-menu-open");
+                    }
+
+                    // Scroll to target
+                    const headerHeight = document.querySelector('.sticky-header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

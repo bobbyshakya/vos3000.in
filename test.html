@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPO Slider | Zeesonic Technology</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Init -->
+  <script>
+    new Swiper(".bannerSwiper", {
+      loop: true,
+      effect: 'fade',
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+  <style>
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- Slider Section -->
+  <section id="home" class="relative min-h-screen overflow-hidden">
+    <div class="swiper bannerSwiper h-screen w-full">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide bg-cover bg-center relative flex items-center justify-center h-screen"
+          style="background-image: url('https://images.unsplash.com/photo-1581091012184-7e0cdfbb6791?auto=format&fit=crop&w=1650&q=80');">
+          <div class="absolute inset-0 bg-black/60 z-10"></div>
+          <div class="relative z-20 text-center max-w-3xl px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to <span class="text-blue-400">Zeesonic Technology</span></h1>
+            <p class="text-lg text-gray-200 mb-6">
+              We provide expert telecom, VOIP & call center solutions to grow your business.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+              <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">Get Free Consultation</a>
+              <a href="#services" class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Explore Services</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide bg-cover bg-center relative flex items-center justify-center h-screen"
+          style="background-image: url('https://images.unsplash.com/photo-1600267165800-cbd3416ed1f5?auto=format&fit=crop&w=1650&q=80');">
+          <div class="absolute inset-0 bg-black/60 z-10"></div>
+          <div class="relative z-20 text-center max-w-3xl px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Call Center & <span class="text-blue-400">VOIP Solutions</span></h1>
+            <p class="text-lg text-gray-200 mb-6">
+              Enhance your customer communication with secure and scalable systems.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+              <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">Get Free Consultation</a>
+              <a href="#services" class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Explore Services</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide bg-cover bg-center relative flex items-center justify-center h-screen"
+          style="background-image: url('https://images.unsplash.com/photo-1607082352234-0bb0df3ed999?auto=format&fit=crop&w=1650&q=80');">
+          <div class="absolute inset-0 bg-black/60 z-10"></div>
+          <div class="relative z-20 text-center max-w-3xl px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Secure & <span class="text-blue-400">Future-Ready</span></h1>
+            <p class="text-lg text-gray-200 mb-6">
+              Our cybersecurity experts ensure your systems are protected and optimized.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+              <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition">Get Free Consultation</a>
+              <a href="#services" class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Explore Services</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Swiper Pagination and Navigation -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <!-- Swiper JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Init -->
+  <script>
+    new Swiper(".bannerSwiper", {
+      loop: true,
+      effect: 'fade',
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+</html>
