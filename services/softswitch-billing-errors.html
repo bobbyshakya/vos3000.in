@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      primary: {
+                          50: '#f0f5ff',
+                          100: '#e0eaff',
+                          200: '#c7d9ff',
+                          300: '#a4beff',
+                          400: '#7a96ff',
+                          500: '#5b6af9',
+                          600: '#4146eb',
+                          700: '#3538d2',
+                          800: '#2d31a8',
+                          900: '#2c3282',
+                          950: '#1a1d4c',
+                      },
+                  },
+                  animation: {
+                      'fade-in': 'fadeIn 0.5s ease-in-out',
+                      'slide-up': 'slideUp 0.5s ease-in-out',
+                      'bounce-slow': 'bounce 3s infinite',
+                      'pulse-slow': 'pulse 3s infinite',
+                      'float': 'float 6s ease-in-out infinite',
+                      'spin-slow': 'spin 8s linear infinite',
+                  },
+                  keyframes: {
+                      fadeIn: {
+                          '0%': { opacity: '0' },
+                          '100%': { opacity: '1' },
+                      },
+                      slideUp: {
+                          '0%': { transform: 'translateY(20px)', opacity: '0' },
+                          '100%': { transform: 'translateY(0)', opacity: '1' },
+                      },
+                      float: {
+                          '0%, 100%': { transform: 'translateY(0)' },
+                          '50%': { transform: 'translateY(-10px)' },
+                      },
+                  },
+                  transitionProperty: {
+                      'height': 'height',
+                      'spacing': 'margin, padding',
+                  }
+              },
+          },
+      }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <title>Softswitch Billing & Dial Plan Fix - Zeesonic Technology</title>
+  <meta name="title" content="Softswitch Billing & Dial Plan Fix - Zeesonic Technology">
+  <meta name="description"
+      content="Resolve billing errors and dial plan issues within your Softswitch systems with ZeeSonic Technology's expert support.">
+  <meta name="keywords"
+      content="Softswitch, Billing Errors, Dial Plan Issues, VoIP, Call Routing, CDR, Least Cost Routing, SIP Trunking, Telecom, Zeesonic Technology">
+  <meta name="author" content="Zeesonic Technology">
+  <meta name="robots" content="index, follow">
+
+  <style>
+      :root {
+          --primary-color: #4146eb;
+          --primary-dark: #2d31a8;
+          --primary-light: #c7d9ff;
+          --gradient-primary: linear-gradient(to right, #3538d2, #4146eb, #5b6af9);
+          --gradient-dark: linear-gradient(to right, #1a1d4c, #2c3282, #3538d2);
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          scroll-behavior: smooth;
+          overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+          font-family: 'Poppins', sans-serif;
+      }
+
+      /* Feature card hover effect */
+      .feature-card {
+          transition: all 0.4s ease;
+      }
+
+      .feature-card:hover {
+          transform: translateY(-10px);
+      }
+
+      .feature-card:hover .feature-icon {
+          background-color: var(--primary-color);
+          color: white;
+      }
+
+      /* Process step hover effect */
+      .process-step {
+          transition: all 0.4s ease;
+      }
+
+      .process-step:hover {
+          transform: scale(1.05);
+      }
+
+      .process-step:hover .step-number {
+          background-color: var(--primary-color);
+          color: white;
+      }
+
+      /* Animated gradient background */
+      .animated-gradient {
+          background: linear-gradient(-45deg, #1a1d4c, #2c3282, #3538d2, #4146eb);
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+      }
+
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+
+      /* Floating animation */
+      .floating {
+          animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+          0% {
+              transform: translateY(0px);
+          }
+          50% {
+              transform: translateY(-20px);
+          }
+          100% {
+              transform: translateY(0px);
+          }
+      }
+
+      /* Fade in animation */
+      .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      /* Button hover effects */
+      .btn-hover-effect {
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          z-index: 1;
+      }
+
+      .btn-hover-effect:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+          z-index: -1;
+      }
+
+      .btn-hover-effect:hover:before {
+          width: 100%;
+      }
+
+      .btn-hover-effect:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Improved card hover effects */
+      .hover-card {
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+   .feature-card:hover .feature-icon i {
+       
+          color: white;
+      }
+      .hover-card:hover {
+          transform: translateY(-15px) scale(1.03);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+  </style>
+</head>
+
+<body class="antialiased text-gray-800">
+  <div id="pageLoader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
+      <div class="flex flex-col items-center">
+          <div class="w-16 h-16 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin"></div>
+          <p class="mt-4 text-primary-800 font-medium">Loading Zeesonic...</p>
+      </div>
+  </div>
+ <header class="relative z-30">
+        <nav class="sticky-header py-3 bg-white/80 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-4 lg:px-6 flex items-center justify-between relative">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-white z-10" aria-label="Zeesonic Technology Home">
+                    <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/">Home</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/about.html">About</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-gray-800 hover:text-primary-600 font-medium">
+                            Services
+                            <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 top-full mt-2 hidden group-hover:block bg-white border shadow-lg rounded-md w-[300px] z-50">
+                            <a href="/services/asterisk-IPPBX-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">asterisk-IPPBX-services.html</a>
+                            <a href="/services/cyber-security-for-calls-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Cybersecurity for Calls Services</a>
+                            <a href="/services/linux-server-security-services-by-zeeSonic.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Linux Server Security Services</a>
+                            <a href="/services/network-security-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Network Security Services</a>
+                            <a href="/services/Routing-switching-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Routing & Switching Calls Services</a>
+                            <a href="/services/softswitch-billing-errors.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Softswitch Billing & Dial Plan Fix
+                                Services</a>
+                            <a href="/services/softswitch-installation-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100"> Softswitch Installation Services</a>
+                            <a href="/services/vicidial-dialer-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Vicidial Dialer Solutions</a>
+                        </div>
+                    </div>
+
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/terms-and-conditions.html">Terms
+                        And Conditions</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/privacy-policy.html">Privacy
+                        Policy</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/contact-us.html">Contact</a>
+
+                    <!-- Profile Button -->
+                    <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                        class="btn-primary inline-flex items-center justify-center gap-2 text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-6 py-2">
+                        Download Profile
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuButton" class="lg:hidden text-gray-800 hover:text-primary-600 z-20"
+                    aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" style="z-index: 9999999999 !important;"
+                    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 lg:hidden">
+                    <div class="flex justify-between items-center p-4 border-b">
+                        <a href="/" class="text-2xl font-bold">
+                            <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                        </a>
+                        <button id="closeMenu" class="text-gray-800 hover:text-primary-600" aria-label="Close menu">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-70px)]">
+                        <nav class="flex flex-col space-y-4">
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/">Home</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/about">About</a>
+
+                            <!-- Services Submenu -->
+                            <div>
+                                <p class="text-sm font-semibold text-gray-500 mb-2 px-4">Services</p>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/telecom-solutions">Telecom Solutions</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/voip-services">VOIP Services</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/call-center-support">Call Center Support</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/software-installation">Software Installation</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/security-services">Security Services</a>
+                            </div>
+
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/bpo-solutions">BPO Solutions</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/testimonials">Testimonials</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/contact">Contact</a>
+
+                            <!-- Profile Button -->
+                            <div class="pt-4">
+                                <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                                    class="btn-primary block text-center py-3 px-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-lg font-medium">
+                                    Download Company Profile
+                                </a>
+                            </div>
+
+                            <!-- Social Icons -->
+                            <div class="pt-4 flex justify-center space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-facebook-f text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-twitter text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-linkedin-in text-primary-600"></i>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+  <main>
+      <section class="relative bg-white pt-20 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-950/80 to-primary-900/80 z-10"></div>
+          <div class="absolute inset-0 bg-[url('/assets/images/softswitch-background.jpg')] bg-cover bg-center"></div>
+          
+          <div class="absolute inset-0 z-0">
+              <div id="particles-js"></div>
+          </div>
+          
+          <div class="container mx-auto px-4 py-20 md:py-32 relative z-20">
+              <div class="grid md:grid-cols-12 gap-10 items-center">
+                  <div class="text-white md:col-span-7" data-aos="fade-right" data-aos-duration="1000">
+                      <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4">
+                          Our Services
+                      </div>
+                      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                          Softswitch <span class="text-primary-300">Billing & Dial Plan</span> Fix Services
+                      </h1>
+                      <p class="text-lg md:text-xl mb-8 text-gray-200 max-w-2xl">
+                          Resolve billing errors and dial plan issues within your Softswitch systems with ZeeSonic Technology's expert support. [cite: 51]
+                      </p>
+
+                      <div class="grid sm:grid-cols-2 gap-6 mb-10">
+                          <div class="flex items-start gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                              <i class="fas fa-money-check-alt text-3xl text-primary-300"></i>
+                              <div>
+                                  <h4 class="text-lg font-semibold">Accurate Billing</h4>
+                                  <p class="text-sm text-gray-300">Pinpoint and resolve billing discrepancies swiftly. [cite: 56]</p>
+                              </div>
+                          </div>
+                          <div class="flex items-start gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                              <i class="fas fa-route text-3xl text-primary-300"></i>
+                              <div>
+                                  <h4 class="text-lg font-semibold">Smooth Call Routing</h4>
+                                  <p class="text-sm text-gray-300">Ensure calls are routed properly and efficiently. [cite: 57]</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
+                          <a href="/services.html"
+                              class="btn-hover-effect group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-primary-600/30 flex items-center">
+                              Explore Services
+                              <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                          </a>
+                          <a href="/contact-us.html"
+                              class="btn-hover-effect border-2 border-white hover:bg-white hover:text-primary-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300">
+                              Free Consultation
+                          </a>
+                      </div>
+                  </div>
+
+                  <div class="md:col-span-5 hidden md:block" data-aos="fade-left" data-aos-duration="1000">
+                      <div class="relative">
+                          <div class="absolute -inset-4 bg-primary-600/20 rounded-full blur-xl animate-pulse-slow"></div>
+                          <img src="/assets/images/softswitch-specialist.jpg" alt="Softswitch Billing and Dial Plan Fix Services"
+                              class="relative z-10 rounded-2xl shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-500">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px]">
+                  <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffffff"></path>
+              </svg>
+          </div>
+      </section>
+
+      <section id="overview" class="py-20 bg-white overflow-hidden">
+          <div class="container mx-auto px-4">
+              <div class="grid md:grid-cols-2 gap-16 items-center">
+                  <div class="relative" data-aos="fade-right" data-aos-duration="1000">
+                      <div class="absolute -inset-4 bg-primary-100 rounded-full blur-xl"></div>
+                      <div class="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
+                          <img src="/assets/images/softswitch-dashboard.jpg" alt="Softswitch Billing Dashboard" 
+                              class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
+                      </div>
+                      <div class="absolute -top-10 -right-10 w-20 h-20 bg-primary-100 rounded-full opacity-70 animate-float"></div>
+                      <div class="absolute -bottom-8 -left-8 w-16 h-16 bg-primary-200 rounded-full opacity-70 animate-float" style="animation-delay: 1s;"></div>
+                  </div>
+                  
+                  <div data-aos="fade-left" data-aos-duration="1000">
+                      <div class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                          What We Address
+                      </div>
+                      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                          Resolving Complex <span class="text-primary-600">Softswitch Issues</span>
+                      </h2>
+                      <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                          At ZeeSonic Technology, we specialize in fixing billing errors and dial plan issues within your Softswitch systems. [cite: 51] We understand that accurate billing and smooth call routing are critical to the success of your VoIP operations. [cite: 53] Our service is designed to help you minimize downtime, optimize performance, and ensure your system is running smoothly and error-free. [cite: 54]
+                      </p>
+                      
+                      <div class="space-y-4 mb-8">
+                          <div class="flex items-start gap-3">
+                              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                  <i class="fas fa-check text-primary-600 text-sm"></i>
+                              </div>
+                              <p class="text-gray-700">Discrepancies in billing [cite: 52]</p>
+                          </div>
+                          <div class="flex items-start gap-3">
+                              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                  <i class="fas fa-check text-primary-600 text-sm"></i>
+                              </div>
+                              <p class="text-gray-700">Routing issues and misconfigured dial plans [cite: 52]</p>
+                          </div>
+                          <div class="flex items-start gap-3">
+                              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                  <i class="fas fa-check text-primary-600 text-sm"></i>
+                              </div>
+                              <p class="text-gray-700">Ensuring compliance and accuracy [cite: 61]</p>
+                          </div>
+                          <div class="flex items-start gap-3">
+                              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                  <i class="fas fa-check text-primary-600 text-sm"></i>
+                              </div>
+                              <p class="text-gray-700">Optimizing performance and minimizing downtime [cite: 54]</p>
+                          </div>
+                      </div>
+                      
+                  
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="py-24 bg-primary-50 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-primary-100 rounded-full opacity-70 -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-100 rounded-full opacity-70 translate-y-1/2 -translate-x-1/2"></div>
+          
+          <div class="container mx-auto px-4 relative z-10">
+              <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                      Why Choose ZeeSonic
+                  </div>
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                      Expert Softswitch Billing & Dial Plan Fixes
+                  </h2>
+                  <p class="text-gray-600 text-lg">
+                      We offer expert solutions to fix Softswitch billing errors and dial plan issues, ensuring that your system operates at its highest potential. [cite: 74]
+                  </p>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-8">
+                  <div class="bg-white rounded-xl shadow-lg p-8 feature-card" data-aos="fade-up" data-aos-delay="100">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                          <i class="fas fa-check-circle text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Expert Billing Error Resolution</h3>
+                      <p class="text-gray-600 mb-6">
+                          We pinpoint the root cause of billing discrepancies, including incorrect rates, faulty CDR generation, or inaccurate invoicing. [cite: 56]
+                      </p>
+                      <ul class="space-y-2 mb-6 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Incorrect charges and billing issues [cite: 62]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Faulty CDR generation [cite: 56]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Inaccurate invoicing [cite: 56]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-lg p-8 feature-card" data-aos="fade-up" data-aos-delay="200">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                          <i class="fas fa-cogs text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Dial Plan Troubleshooting</h3>
+                      <p class="text-gray-600 mb-6">
+                          Our team analyzes and resolves issues in your dial plans, ensuring that calls are routed properly and follow the correct paths. [cite: 57]
+                      </p>
+                      <ul class="space-y-2 mb-6 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Call routing problems [cite: 63]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Mismatched dial plan logic [cite: 63]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Reduced drop rates [cite: 59]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-lg p-8 feature-card" data-aos="fade-up" data-aos-delay="300">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                          <i class="fas fa-laptop-code text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Custom Solutions for Complex Systems</h3>
+                      <p class="text-gray-600 mb-6">
+                          We offer tailored solutions to fix billing and dial plan issues across various configurations, including Class 4, Class 5, or hybrid Softswitch systems. [cite: 58]
+                      </p>
+                      <ul class="space-y-2 mb-6 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Support for Class 4 Softswitch [cite: 58]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Support for Class 5 Softswitch [cite: 58]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Hybrid Softswitch system support [cite: 58]</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-8 mt-8">
+                  <div class="bg-white rounded-xl shadow-lg p-8 feature-card" data-aos="fade-up" data-aos-delay="400">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                          <i class="fas fa-clock text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">24/7 Support</h3>
+                      <p class="text-gray-600 mb-6">
+                          We provide round-the-clock support to address any system errors or billing issues, ensuring minimal disruption to your operations. [cite: 60]
+                      </p>
+                      <ul class="space-y-2 mb-6 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Round-the-clock system error support [cite: 60]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>24/7 billing issue resolution [cite: 60]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Minimal operational disruption [cite: 60]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-lg p-8 feature-card" data-aos="fade-up" data-aos-delay="500">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                          <i class="fas fa-clipboard-check text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Compliance & Accuracy</h3>
+                      <p class="text-gray-600 mb-6">
+                          We ensure your Softswitch system complies with industry standards and regulatory requirements for billing accuracy and call management. [cite: 61]
+                      </p>
+                      <ul class="space-y-2 mb-6 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Industry standard compliance [cite: 61]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Regulatory requirement adherence [cite: 61]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-hand-point-right text-primary-600 mt-1"></i>
+                              <span>Ensuring billing accuracy [cite: 61]</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="features" class="py-24 bg-white relative overflow-hidden">
+          <div class="container mx-auto px-4">
+              <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                      Core Services
+                  </div>
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                      Comprehensive Softswitch Fix Services
+                  </h2>
+                  <p class="text-gray-600 text-lg">
+                      Explore our full range of Softswitch solutions designed to ensure accurate billing and smooth call routing.
+                  </p>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-8">
+                  <div class="bg-white rounded-xl shadow-md p-6 hover-card" data-aos="fade-up" data-aos-delay="100">
+                      <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                          <i class="fas fa-file-invoice-dollar text-2xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Billing Error Diagnosis & Resolution</h3>
+                      <p class="text-gray-600 mb-4">
+                          We identify and fix issues related to incorrect charges, overbilling, underbilling, and CDR inaccuracies. [cite: 62]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Incorrect charges [cite: 62]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Overbilling/Underbilling [cite: 62]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>CDR inaccuracies [cite: 62]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-md p-6 hover-card" data-aos="fade-up" data-aos-delay="200">
+                      <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                          <i class="fas fa-project-diagram text-2xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Dial Plan Configuration & Fixes</h3>
+                      <p class="text-gray-600 mb-4">
+                          Resolve issues with call routing, call flow, and mismatched dial plan logic that causes delays or dropped calls. [cite: 63]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Call routing issues [cite: 63]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Call flow problems [cite: 63]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Mismatched dial plan logic [cite: 63]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-md p-6 hover-card" data-aos="fade-up" data-aos-delay="300">
+                      <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                          <i class="fas fa-dollar-sign text-2xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Least Cost Routing (LCR) Troubleshooting</h3>
+                      <p class="text-gray-600 mb-4">
+                          Resolve issues with routing calls through the most cost-effective, high-quality carriers based on predefined LCR rules. [cite: 64]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Cost-effective routing issues [cite: 64]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>High-quality carrier routing [cite: 64]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>LCR rule adherence [cite: 64]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-md p-6 hover-card" data-aos="fade-up" data-aos-delay="400">
+                      <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                          <i class="fas fa-phone-alt text-2xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">SIP Trunking & Call Routing Issues</h3>
+                      <p class="text-gray-600 mb-4">
+                          Fix problems related to SIP trunk configurations, codec mismatches, and call forwarding problems. [cite: 65]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>SIP trunk configuration issues [cite: 65]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Codec mismatches [cite: 65]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Call forwarding problems [cite: 65]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-md p-6 hover-card" data-aos="fade-up" data-aos-delay="500">
+                      <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                          <i class="fas fa-chart-line text-2xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Real-Time Billing & CDR Fixes</h3>
+                      <p class="text-gray-600 mb-4">
+                          Ensure that your real-time billing systems and CDR (Call Detail Records) are correctly generated, reported, and invoiced. [cite: 66]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Real-time billing system accuracy [cite: 66]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Correct CDR generation [cite: 66]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Accurate reporting and invoicing [cite: 66]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-md p-6 hover-card" data-aos="fade-up" data-aos-delay="600">
+                      <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                          <i class="fas fa-globe text-2xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Error-Free VoIP Call Billing</h3>
+                      <p class="text-gray-600 mb-4">
+                          Troubleshoot and resolve issues related to incorrect billing for international calls, toll-free numbers, or premium-rate services. [cite: 67]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>International call billing accuracy [cite: 67]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Toll-free number billing [cite: 67]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Premium-rate service billing [cite: 67]</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-8 mt-8">
+                  <div class="bg-white rounded-xl shadow-md p-6 hover-card" data-aos="fade-up" data-aos-delay="700">
+                      <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
+                          <i class="fas fa-magnifying-glass-chart text-2xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Comprehensive Softswitch Audit</h3>
+                      <p class="text-gray-600 mb-4">
+                          Conduct a full audit of your Softswitch system to identify and fix ongoing issues and optimize the configuration for efficiency. [cite: 68]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Full system audit [cite: 68]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Identify and fix ongoing issues [cite: 68]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Configuration optimization [cite: 68]</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="py-24 bg-primary-50 relative overflow-hidden">
+          <div class="container mx-auto px-4 relative z-10">
+              <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                      Industries That Benefit
+                  </div>
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                      Tailored Solutions for Your Business
+                  </h2>
+                  <p class="text-gray-600 text-lg">
+                      Our Softswitch billing and dial plan fix services are crucial for various industries reliant on seamless VoIP operations.
+                  </p>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-8">
+                  <div class="bg-white rounded-xl shadow-lg p-8 hover-card" data-aos="fade-up" data-aos-delay="100">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                          <i class="fas fa-broadcast-tower text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">VoIP Service Providers</h3>
+                      <p class="text-gray-600 mb-4">
+                          Ensure accurate billing for your customers and fix any dial plan or call routing errors. [cite: 69]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Accurate customer billing [cite: 69]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Fix dial plan errors [cite: 69]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Resolve call routing issues [cite: 69]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-lg p-8 hover-card" data-aos="fade-up" data-aos-delay="200">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                          <i class="fas fa-phone-volume text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Telecom Operators & Carriers</h3>
+                      <p class="text-gray-600 mb-4">
+                          Resolve complex issues with call routing, traffic management, and billing in your Softswitch infrastructure. [cite: 70]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Complex call routing issues [cite: 70]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Traffic management solutions [cite: 70]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Billing issues in Softswitch infrastructure [cite: 70]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-lg p-8 hover-card" data-aos="fade-up" data-aos-delay="300">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                          <i class="fas fa-headset text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Call Centers</h3>
+                      <p class="text-gray-600 mb-4">
+                          Fix dial plan issues that affect agent workflows and customer service, while ensuring accurate billing for customer calls. [cite: 71]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Dial plan issues affecting workflows [cite: 71]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Improved customer service [cite: 71]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Accurate billing for customer calls [cite: 71]</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-8 mt-8">
+                  <div class="bg-white rounded-xl shadow-lg p-8 hover-card" data-aos="fade-up" data-aos-delay="400">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                          <i class="fas fa-users text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">B2B & B2C Providers</h3>
+                      <p class="text-gray-600 mb-4">
+                          Whether you are serving small businesses or large enterprises, we ensure your Softswitch is error-free, improving your service reliability. [cite: 72]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Error-free Softswitch operations [cite: 72]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Improved service reliability [cite: 72]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Support for diverse business scales [cite: 72]</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <div class="bg-white rounded-xl shadow-lg p-8 hover-card" data-aos="fade-up" data-aos-delay="500">
+                      <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                          <i class="fas fa-handshake text-3xl text-primary-600"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3 text-gray-900">Wholesale VoIP Providers</h3>
+                      <p class="text-gray-600 mb-4">
+                          Fix dial plan and routing problems to streamline your operations and enhance profitability. [cite: 73]
+                      </p>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Streamlined operations [cite: 73]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Enhanced profitability [cite: 73]</span>
+                          </li>
+                          <li class="flex items-start gap-2">
+                              <i class="fas fa-check-circle text-primary-600 mt-1"></i>
+                              <span>Fixing routing problems [cite: 73]</span>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="py-24 animated-gradient text-white relative overflow-hidden">
+          <div class="absolute inset-0 bg-[url('/assets/images/digital-security-concept.jpg')] opacity-10 bg-no-repeat bg-cover"></div>
+          
+          <div class="container mx-auto px-4 relative z-10">
+              <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4">
+                      Business Benefits
+                  </div>
+                  <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                      Ensure Seamless VoIP Operations
+                  </h2>
+                  <p class="text-lg opacity-90">
+                      ZeeSonic helps businesses achieve tangible results with our comprehensive Softswitch fix services.
+                  </p>
+              </div>
+
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover-card" data-aos="fade-up" data-aos-delay="100">
+                      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                          <i class="fas fa-hand-holding-dollar text-3xl"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3">Cost Optimization</h3>
+                      <p class="text-sm opacity-90">
+                          By resolving billing errors and optimizing dial plans, we help you reduce unnecessary costs and improve profitability.
+                      </p>
+                  </div>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover-card" data-aos="fade-up" data-aos-delay="200">
+                      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                          <i class="fas fa-arrow-right-arrow-left text-3xl"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3">Enhanced Call Routing</h3>
+                      <p class="text-sm opacity-90">
+                          Ensure reliable call routing, reduce drop rates, and improve overall call quality for a superior customer experience. [cite: 59]
+                      </p>
+                  </div>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover-card" data-aos="fade-up" data-aos-delay="300">
+                      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                          <i class="fas fa-hourglass-half text-3xl"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3">Minimized Downtime</h3>
+                      <p class="text-sm opacity-90">
+                          Our prompt and efficient fixes ensure minimal disruption to your operations, keeping your VoIP services running smoothly. [cite: 54, 75]
+                      </p>
+                  </div>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover-card" data-aos="fade-up" data-aos-delay="400">
+                      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                          <i class="fas fa-chart-simple text-3xl"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3">Improved Performance</h3>
+                      <p class="text-sm opacity-90">
+                          Optimize your Softswitch system's performance by resolving underlying issues affecting speed and efficiency. [cite: 54]
+                      </p>
+                  </div>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover-card" data-aos="fade-up" data-aos-delay="500">
+                      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                          <i class="fas fa-check-to-slot text-3xl"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3">Assured Accuracy</h3>
+                      <p class="text-sm opacity-90">
+                          Ensure accurate billing and CDR generation, preventing disputes and enhancing customer trust. [cite: 56, 66]
+                      </p>
+                  </div>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover-card" data-aos="fade-up" data-aos-delay="600">
+                      <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                          <i class="fas fa-magnifying-glass text-3xl"></i>
+                      </div>
+                      <h3 class="text-xl font-semibold mb-3">Proactive Problem Solving</h3>
+                      <p class="text-sm opacity-90">
+                          Our comprehensive audits and expert team proactively identify and fix issues before they impact your business. [cite: 68, 75]
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="contact" class="py-20 bg-white relative overflow-hidden">
+          <div class="container mx-auto px-4 relative z-10">
+              <div class="bg-primary-900 rounded-2xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="text-center mb-8">
+                      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Resolve Your Softswitch Issues?</h2>
+                      <p class="text-gray-300 text-lg">
+                          Contact ZeeSonic today for a free consultation or let our experts conduct a full audit of your Softswitch system. [cite: 76]
+                      </p>
+                  </div>
+                  
+                  <div class="grid md:grid-cols-2 gap-8">
+                      <div>
+                          <h3 class="text-xl font-semibold mb-4 text-primary-300">Get in Touch</h3>
+                          <form action="#" method="POST" class="space-y-4">
+                              <div>
+                                  <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                                  <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="Your name">
+                              </div>
+                              <div>
+                                  <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                                  <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="your@email.com">
+                              </div>
+                              <div>
+                                  <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
+                                  <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="Your phone number">
+                              </div>
+                              <div>
+                                  <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                                  <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="Tell us about your Softswitch issues"></textarea>
+                              </div>
+                              <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-4 rounded-lg transition duration-300 shadow-lg shadow-primary-500/20">
+                                  Request Free Consultation
+                              </button>
+                          </form>
+                      </div>
+                      
+                      <div class="flex flex-col justify-between">
+                          <div>
+                              <h3 class="text-xl font-semibold mb-4 text-primary-300">Why Get a Consultation?</h3>
+                              <ul class="space-y-4 text-gray-300">
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center mt-1">
+                                          <i class="fas fa-check text-primary-300 text-sm"></i>
+                                      </div>
+                                      <p>Understand the root cause of your billing or dial plan issues</p>
+                                  </li>
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center mt-1">
+                                          <i class="fas fa-check text-primary-300 text-sm"></i>
+                                      </div>
+                                      <p>Receive tailored solutions for your specific Softswitch setup</p>
+                                  </li>
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center mt-1">
+                                          <i class="fas fa-check text-primary-300 text-sm"></i>
+                                      </div>
+                                      <p>Learn how to optimize your system for maximum efficiency and cost-effectiveness</p>
+                                  </li>
+                              </ul>
+                          </div>
+                          
+                          <div class="mt-8 bg-primary-800/50 p-6 rounded-lg">
+                              <h3 class="text-xl font-semibold mb-4 text-primary-300">Contact Information</h3>
+                              <ul class="space-y-4 text-gray-300">
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-700 flex items-center justify-center">
+                                          <i class="fas fa-phone-alt text-primary-300"></i>
+                                      </div>
+                                      <div>
+                                          <p class="font-medium text-white">Phone Number</p>
+                                          <p>+1 (123) 456-7890</p>
+                                      </div>
+                                  </li>
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-700 flex items-center justify-center">
+                                          <i class="fas fa-envelope text-primary-300"></i>
+                                      </div>
+                                      <div>
+                                          <p class="font-medium text-white">Email Address</p>
+                                          <p>support@zeesonictech.com</p>
+                                      </div>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+ <footer class="relative bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 overflow-hidden">
+
+        <div class="container relative mx-auto px-4 py-10 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Zeesonic Technology</h3>
+                        <p class="mb-6 text-sm md:text-base text-slate-300">Your dedicated partner in next-gen telecom
+                            solutions, VOIP services, and technical support for telecom companies, VOIP providers, and
+                            call center businesses.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" aria-label="Facebook"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Contact Info</h3>
+                        <ul class="space-y-3 text-sm md:text-base text-slate-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>123 Tech Plaza, Suite 500, San Francisco, CA 94103</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>+1 (555) 000-0000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-3 text-indigo-300"></i>
+                                <span>info@zeesonic.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock mt-1 mr-3 text-indigo-300"></i>
+                                <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Our Services</h3>
+                        <ul class="space-y-2 text-white">
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/asterisk-IPPBX-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Asterisk IPPBX
+                                    Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/cyber-security-for-calls-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Cybersecurity for
+                                    Calls Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/linux-server-security-services-by-zeeSonic.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Linux Server
+                                    Security Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/network-security-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Network Security
+                                    Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/Routing-switching-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Routing & Switching
+                                    Calls Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/softswitch-billing-errors.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Softswitch Billing
+                                    & Dial Plan Fix Services
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Newsletter</h3>
+                        <p class="mb-6 text-slate-300">Subscribe to our newsletter to receive updates and industry
+                            insights.</p>
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <input type="email" placeholder="Your Email Address"
+                                    class="w-full px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-indigo-400 text-gray-800"
+                                    required>
+                            </div>
+                            <button type="submit"
+                                class="btn-primary w-full bg-white text-indigo-900 hover:bg-gray-100 font-medium py-3 px-4 rounded-full transition-all duration-300">
+                                Subscribe Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-700/50 text-center text-slate-400 text-sm">
+                <p>© 2025 Zeesonic Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <script>
+      // Initialize AOS
+      AOS.init({
+          once: true,
+          duration: 800,
+          offset: 100,
+      });
+      
+      // Particles.js
+      if (typeof particlesJS !== 'undefined') {
+          particlesJS("particles-js", {
+              "particles": {
+                  "number": {
+                      "value": 80,
+                      "density": {
+                          "enable": true,
+                          "value_area": 800
+                      }
+                  },
+                  "color": {
+                      "value": "#ffffff"
+                  },
+                  "shape": {
+                      "type": "circle",
+                      "stroke": {
+                          "width": 0,
+                          "color": "#000000"
+                      },
+                  },
+                  "opacity": {
+                      "value": 0.3,
+                      "random": false,
+                      "anim": {
+                          "enable": false,
+                          "speed": 1,
+                          "opacity_min": 0.1,
+                          "sync": false
+                      }
+                  },
+                  "size": {
+                      "value": 3,
+                      "random": true,
+                      "anim": {
+                          "enable": false,
+                          "speed": 40,
+                          "size_min": 0.1,
+                          "sync": false
+                      }
+                  },
+                  "line_linked": {
+                      "enable": true,
+                      "distance": 150,
+                      "color": "#ffffff",
+                      "opacity": 0.2,
+                      "width": 1
+                  },
+                  "move": {
+                      "enable": true,
+                      "speed": 2,
+                      "direction": "none",
+                      "random": false,
+                      "straight": false,
+                      "out_mode": "out",
+                      "bounce": false,
+                      "attract": {
+                          "enable": false,
+                          "rotateX": 600,
+                          "rotateY": 1200
+                      }
+                  }
+              },
+              "interactivity": {
+                  "detect_on": "canvas",
+                  "events": {
+                      "onhover": {
+                          "enable": true,
+                          "mode": "grab"
+                      },
+                      "onclick": {
+                          "enable": true,
+                          "mode": "push"
+                      },
+                      "resize": true
+                  },
+                  "modes": {
+                      "grab": {
+                          "distance": 140,
+                          "line_linked": {
+                              "opacity": 1
+                          }
+                      },
+                      "bubble": {
+                          "distance": 400,
+                          "size": 40,
+                          "duration": 2,
+                          "opacity": 8,
+                          "speed": 3
+                      },
+                      "repulse": {
+                          "distance": 200,
+                          "duration": 0.4
+                      },
+                      "push": {
+                          "particles_nb": 4
+                      },
+                      "remove": {
+                          "particles_nb": 2
+                      }
+                  }
+              },
+              "retina_detect": true
+          });
+      }
+      
+      // Page Loader
+      window.addEventListener('load', () => {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              setTimeout(() => {
+                  pageLoader.style.opacity = '0';
+                  setTimeout(() => {
+                      pageLoader.style.display = 'none';
+                  }, 500);
+              }, 500);
+          }
+      });
+      
+      // Fade in elements on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      function checkFade() {
+          fadeElements.forEach(element => {
+              const elementTop = element.getBoundingClientRect().top;
+              const windowHeight = window.innerHeight;
+              
+              if (elementTop < windowHeight - 100) {
+                  element.classList.add('visible');
+              }
+          });
+      }
+      
+      window.addEventListener('scroll', checkFade);
+      window.addEventListener('load', checkFade);
+  </script>
+</body>
+
+</html>

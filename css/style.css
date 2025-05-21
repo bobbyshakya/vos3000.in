@@ -43,6 +43,14 @@
    top: var(--swiper-navigation-top-offset, 86%);
 }
 
+ .feature-card:hover .feature-icon i {
+         
+          color: white;
+      }
+ .process-step:hover .step-number span {
+         
+          color: white;
+      }
 
 @layer base {
   :root {
