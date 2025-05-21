@@ -5,6 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Add before </body> -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -176,9 +191,11 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -193,9 +210,11 @@
             0% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-20px);
             }
+
             100% {
                 transform: translateY(0px);
             }
@@ -389,6 +408,7 @@
             from {
                 box-shadow: 0 0 10px rgba(65, 70, 235, 0.5);
             }
+
             to {
                 box-shadow: 0 0 20px rgba(65, 70, 235, 0.8);
             }
@@ -407,12 +427,10 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(255, 255, 255, 0) 100%
-            );
+            background: linear-gradient(to right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    rgba(255, 255, 255, 0) 100%);
             transform: rotate(30deg);
             animation: shimmer 3s infinite;
         }
@@ -421,6 +439,7 @@
             0% {
                 transform: translateX(-100%) rotate(30deg);
             }
+
             100% {
                 transform: translateX(100%) rotate(30deg);
             }
@@ -437,48 +456,56 @@
         </div>
     </div>
 
-    <header class="relative">
+    <header class="relative z-30">
         <nav class="sticky-header py-3 bg-white/80 backdrop-blur-md shadow-md">
             <div class="container mx-auto px-4 lg:px-6 flex items-center justify-between relative">
                 <!-- Logo -->
                 <a href="/" class="text-2xl font-bold text-white z-10" aria-label="Zeesonic Technology Home">
-                    <img src="https://placehold.co/120x40/4146eb/FFFFFF?text=ZEESONIC" class="w-[120px]" alt="Zeesonic Technology Logo">
+                    <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
                 </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center space-x-6">
-                    <a class="text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300" href="/">Home</a>
-                    <a class="text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300" href="/about">About</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/">Home</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/about.html">About</a>
 
                     <!-- Services Dropdown -->
                     <div class="relative group">
-                        <button class="flex items-center gap-1 text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300">
+                        <button class="flex items-center gap-1 text-gray-800 hover:text-primary-600 font-medium">
                             Services
-                            <i class="fas fa-chevron-down text-xs transition-transform group-hover:rotate-180 duration-300"></i>
+                            <i class="fas fa-chevron-down text-xs transition-transform"></i>
                         </button>
                         <div
-                            class="absolute left-0 top-full mt-2 hidden group-hover:block bg-white border shadow-lg rounded-md w-[300px] z-50 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                            <a href="/services/telecom-solutions"
-                                class="block px-4 py-3 text-sm hover:bg-gray-100 transition-colors duration-200">Telecom Solutions</a>
-                            <a href="/services/voip-services" class="block px-4 py-3 text-sm hover:bg-gray-100 transition-colors duration-200">VOIP
+                            class="absolute left-0 top-full mt-2 hidden group-hover:block bg-white border shadow-lg rounded-md w-[300px] z-50">
+                            <a href="/services/asterisk-IPPBX-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">asterisk-IPPBX-services.html</a>
+                            <a href="/services/cyber-security-for-calls-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Cybersecurity for Calls Services</a>
+                            <a href="/services/linux-server-security-services-by-zeeSonic.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Linux Server Security Services</a>
+                            <a href="/services/network-security-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Network Security Services</a>
+                            <a href="/services/Routing-switching-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Routing & Switching Calls Services</a>
+                            <a href="/services/softswitch-billing-errors.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Softswitch Billing & Dial Plan Fix
                                 Services</a>
-                            <a href="/services/call-center-support"
-                                class="block px-4 py-3 text-sm hover:bg-gray-100 transition-colors duration-200">Call Center Support</a>
-                            <a href="/services/software-installation"
-                                class="block px-4 py-3 text-sm hover:bg-gray-100 transition-colors duration-200">Software Installation</a>
-                            <a href="/services/security-services"
-                                class="block px-4 py-3 text-sm hover:bg-gray-100 transition-colors duration-200">Security Services</a>
+                            <a href="/services/softswitch-installation-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100"> Softswitch Installation Services</a>
+                            <a href="/services/vicidial-dialer-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Vicidial Dialer Solutions</a>
                         </div>
                     </div>
 
-                    <a class="text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300" href="/bpo-solutions">BPO Solutions</a>
-                    <a class="text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300" href="/testimonials">Testimonials</a>
-                    <a class="text-gray-800 hover:text-primary-600 font-medium transition-colors duration-300" href="/contact">Contact</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/terms-and-conditions.html">Terms
+                        And Conditions</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/privacy-policy.html">Privacy
+                        Policy</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/contact-us.html">Contact</a>
 
                     <!-- Profile Button -->
                     <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
-                        class="btn-hover-effect inline-flex items-center justify-center gap-2 text-sm font-medium bg-gradient-to-r from-primary-700 to-primary-600 text-white rounded-full px-6 py-2.5 shadow-lg shadow-primary-500/20">
-                        <i class="fas fa-file-download"></i>
+                        class="btn-primary inline-flex items-center justify-center gap-2 text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-6 py-2">
                         Download Profile
                     </a>
                 </div>
@@ -490,11 +517,11 @@
                 </button>
 
                 <!-- Mobile Menu -->
-                <div id="mobileMenu"
-                    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 lg:hidden mobile-menu">
+                <div id="mobileMenu" style="z-index: 9999999999 !important;"
+                    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 lg:hidden">
                     <div class="flex justify-between items-center p-4 border-b">
                         <a href="/" class="text-2xl font-bold">
-                            <img src="https://placehold.co/120x40/4146eb/FFFFFF?text=ZEESONIC" class="w-[120px]" alt="Zeesonic Technology Logo">
+                            <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
                         </a>
                         <button id="closeMenu" class="text-gray-800 hover:text-primary-600" aria-label="Close menu">
                             <i class="fas fa-times text-xl"></i>
@@ -502,54 +529,53 @@
                     </div>
                     <div class="p-4 overflow-y-auto h-[calc(100%-70px)]">
                         <nav class="flex flex-col space-y-4">
-                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
                                 href="/">Home</a>
-                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
                                 href="/about">About</a>
 
                             <!-- Services Submenu -->
                             <div>
                                 <p class="text-sm font-semibold text-gray-500 mb-2 px-4">Services</p>
-                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg transition-colors duration-200"
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
                                     href="/services/telecom-solutions">Telecom Solutions</a>
-                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg transition-colors duration-200"
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
                                     href="/services/voip-services">VOIP Services</a>
-                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg transition-colors duration-200"
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
                                     href="/services/call-center-support">Call Center Support</a>
-                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg transition-colors duration-200"
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
                                     href="/services/software-installation">Software Installation</a>
-                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg transition-colors duration-200"
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
                                     href="/services/security-services">Security Services</a>
                             </div>
 
-                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
                                 href="/bpo-solutions">BPO Solutions</a>
-                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
                                 href="/testimonials">Testimonials</a>
-                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
                                 href="/contact">Contact</a>
 
                             <!-- Profile Button -->
                             <div class="pt-4">
                                 <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
-                                    class="btn-hover-effect block text-center py-3 px-6 bg-gradient-to-r from-primary-700 to-primary-600 text-white rounded-lg font-medium shadow-lg shadow-primary-500/20">
-                                    <i class="fas fa-file-download mr-2"></i>
+                                    class="btn-primary block text-center py-3 px-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-lg font-medium">
                                     Download Company Profile
                                 </a>
                             </div>
 
                             <!-- Social Icons -->
-                            <div class="pt-6 flex justify-center space-x-4">
-                                <a href="#" aria-label="Facebook"
-                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100 transition-colors duration-300">
+                            <div class="pt-4 flex justify-center space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
                                     <i class="fab fa-facebook-f text-primary-600"></i>
                                 </a>
-                                <a href="#" aria-label="Twitter"
-                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100 transition-colors duration-300">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
                                     <i class="fab fa-twitter text-primary-600"></i>
                                 </a>
-                                <a href="#" aria-label="LinkedIn"
-                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100 transition-colors duration-300">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
                                     <i class="fab fa-linkedin-in text-primary-600"></i>
                                 </a>
                             </div>
@@ -564,13 +590,15 @@
         <!-- Hero Section -->
         <section class="relative bg-white overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-r from-primary-950/90 to-primary-900/90 z-10"></div>
-            <div class="absolute inset-0 bg-[url('/assets/images/business-office-daytime-with-many-computer-screens-map-wall_146671-16339.jpg')] bg-cover bg-center"></div>
-            
+            <div
+                class="absolute inset-0 bg-[url('/assets/images/business-office-daytime-with-many-computer-screens-map-wall_146671-16339.jpg')] bg-cover bg-center">
+            </div>
+
             <!-- Animated Particles -->
             <div class="absolute inset-0 z-0">
                 <div id="particles-js"></div>
             </div>
-            
+
             <div class="container mx-auto px-4 py-24 md:py-32 lg:py-40 relative z-20">
                 <div class="grid md:grid-cols-12 gap-10 items-center">
                     <!-- Left Content -->
@@ -584,7 +612,8 @@
                         </p>
 
                         <div class="grid sm:grid-cols-2 gap-6 mb-10">
-                            <div class="flex items-start gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex items-start gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+                                data-aos="fade-up" data-aos-delay="100">
                                 <i class="fas fa-broadcast-tower text-3xl text-primary-300"></i>
                                 <div>
                                     <h4 class="text-lg font-semibold">Advanced VOIP Services</h4>
@@ -592,7 +621,8 @@
                                         voice solutions.</p>
                                 </div>
                             </div>
-                            <div class="flex items-start gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex items-start gap-4 bg-white/10 p-4 rounded-lg backdrop-blur-sm"
+                                data-aos="fade-up" data-aos-delay="200">
                                 <i class="fas fa-headset text-3xl text-primary-300"></i>
                                 <div>
                                     <h4 class="text-lg font-semibold">24/7 Tech Support</h4>
@@ -603,12 +633,13 @@
                         </div>
 
                         <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
-                            <a href="#services"
+                            <a href="/services.html"
                                 class="btn-hover-effect group bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-lg shadow-primary-600/30 flex items-center">
                                 Our Services
-                                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                                <i
+                                    class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                             </a>
-                            <a href="#contact"
+                            <a href="/contact-us.html"
                                 class="btn-hover-effect border-2 border-white hover:bg-white hover:text-primary-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300">
                                 Contact Us
                             </a>
@@ -618,13 +649,14 @@
                     <!-- Right Image -->
                     <div class="md:col-span-5 hidden md:block" data-aos="fade-left" data-aos-duration="1000">
                         <div class="relative">
-                            <div class="absolute -inset-4 bg-primary-600/20 rounded-full blur-xl animate-pulse-slow"></div>
+                            <div class="absolute -inset-4 bg-primary-600/20 rounded-full blur-xl animate-pulse-slow">
+                            </div>
                             <img src="/assets/images/group-employees-workplace-officeoffice-weekdays_252847-13316.jpg"
                                 class="relative z-10 rounded-2xl h-full shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-500">
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Scroll Down Indicator -->
                 <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white text-center">
                     <p class="text-sm mb-2 opacity-80">Scroll Down</p>
@@ -633,11 +665,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Wave Divider -->
             <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px]">
-                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffffff"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"
+                    class="relative block w-full h-[60px]">
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        fill="#ffffff"></path>
                 </svg>
             </div>
         </section>
@@ -650,17 +685,22 @@
                     <div class="relative" data-aos="fade-right" data-aos-duration="1000">
                         <div class="absolute -inset-4 bg-primary-100 rounded-full blur-xl"></div>
                         <div class="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
-                            <img src="/assets/images/creative-businesspeople-with-mobile-laptop-digital-tablet-working-together-office_23-2148073312.jpg" alt="Outbound Calling" 
+                            <img src="/assets/images/creative-businesspeople-with-mobile-laptop-digital-tablet-working-together-office_23-2148073312.jpg"
+                                alt="Outbound Calling"
                                 class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
                         </div>
                         <!-- Floating Elements -->
-                        <div class="absolute -top-10 -right-10 w-20 h-20 bg-primary-100 rounded-full opacity-70 animate-float"></div>
-                        <div class="absolute -bottom-8 -left-8 w-16 h-16 bg-primary-200 rounded-full opacity-70 animate-float" style="animation-delay: 1s;"></div>
+                        <div
+                            class="absolute -top-10 -right-10 w-20 h-20 bg-primary-100 rounded-full opacity-70 animate-float">
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 w-16 h-16 bg-primary-200 rounded-full opacity-70 animate-float"
+                            style="animation-delay: 1s;"></div>
                     </div>
-                    
+
                     <!-- Content Side -->
                     <div data-aos="fade-left" data-aos-duration="1000">
-                        <div class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                        <div
+                            class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
                             About Zeesonic
                         </div>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -668,36 +708,42 @@
                         </h2>
                         <p class="text-gray-700 text-lg mb-6 leading-relaxed">
                             At Zeesonic Technology, we specialize in cutting-edge telecom and
-                            VOIP services, helping businesses enhance connectivity, security, and efficiency in a digital-first
-                            world. With over a decade of industry experience, our mission is to empower your business with
+                            VOIP services, helping businesses enhance connectivity, security, and efficiency in a
+                            digital-first
+                            world. With over a decade of industry experience, our mission is to empower your business
+                            with
                             tailored, future-ready solutions.
                         </p>
-                        
+
                         <div class="space-y-4 mb-8">
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
                                     <i class="fas fa-check text-primary-600 text-sm"></i>
                                 </div>
                                 <p class="text-gray-700">Industry-leading telecom infrastructure solutions</p>
                             </div>
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
                                     <i class="fas fa-check text-primary-600 text-sm"></i>
                                 </div>
                                 <p class="text-gray-700">24/7 technical support and maintenance</p>
                             </div>
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
                                     <i class="fas fa-check text-primary-600 text-sm"></i>
                                 </div>
                                 <p class="text-gray-700">Customized solutions for businesses of all sizes</p>
                             </div>
                         </div>
-                        
-                        <a href="#our-mission"
+
+                        <a href="/about.html"
                             class="btn-hover-effect group inline-flex items-center bg-primary-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition duration-300">
                             Explore More
-                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
                     </div>
                 </div>
@@ -708,70 +754,86 @@
         <section class="py-24 relative overflow-hidden">
             <!-- Background with animated gradient -->
             <div class="absolute inset-0 animated-gradient"></div>
-            
+
             <div class="container mx-auto px-4 relative z-10">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <!-- Content Side -->
                     <div class="text-white" data-aos="fade-right" data-aos-duration="1000">
-                        <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4">
+                        <div
+                            class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4">
                             Our Strategy
                         </div>
                         <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">
                             Powering Business Growth with Digital Telecom Strategy
                         </h2>
                         <p class="text-lg mb-8 opacity-90">
-                            Zeesonic Technology delivers high-impact, scalable telecom and VOIP solutions tailored for modern enterprises. Our approach integrates digital transformation, cost optimization, and secure infrastructure to enhance customer experience and ROI.
+                            Zeesonic Technology delivers high-impact, scalable telecom and VOIP solutions tailored for
+                            modern enterprises. Our approach integrates digital transformation, cost optimization, and
+                            secure infrastructure to enhance customer experience and ROI.
                         </p>
 
                         <div class="space-y-6 mb-10">
-                            <div class="flex items-start gap-4 bg-white/10 p-5 rounded-xl backdrop-blur-sm transform hover:translate-x-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
+                            <div class="flex items-start gap-4 bg-white/10 p-5 rounded-xl backdrop-blur-sm transform hover:translate-x-2 transition-transform duration-300"
+                                data-aos="fade-up" data-aos-delay="100">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
                                     <i class="fas fa-bolt text-white text-xl"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-semibold mb-1">Scalable Telecom Infrastructure</h4>
-                                    <p class="opacity-90">Adaptable systems designed to grow with your business across regions and demands.</p>
+                                    <p class="opacity-90">Adaptable systems designed to grow with your business across
+                                        regions and demands.</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start gap-4 bg-white/10 p-5 rounded-xl backdrop-blur-sm transform hover:translate-x-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
+
+                            <div class="flex items-start gap-4 bg-white/10 p-5 rounded-xl backdrop-blur-sm transform hover:translate-x-2 transition-transform duration-300"
+                                data-aos="fade-up" data-aos-delay="200">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
                                     <i class="fas fa-network-wired text-white text-xl"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-semibold mb-1">High-Quality VOIP Solutions</h4>
-                                    <p class="opacity-90">Reduce costs and improve communication flow with enterprise-grade VOIP services.</p>
+                                    <p class="opacity-90">Reduce costs and improve communication flow with
+                                        enterprise-grade VOIP services.</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start gap-4 bg-white/10 p-5 rounded-xl backdrop-blur-sm transform hover:translate-x-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
+
+                            <div class="flex items-start gap-4 bg-white/10 p-5 rounded-xl backdrop-blur-sm transform hover:translate-x-2 transition-transform duration-300"
+                                data-aos="fade-up" data-aos-delay="300">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center">
                                     <i class="fas fa-shield-alt text-white text-xl"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-semibold mb-1">Security-First Architecture</h4>
-                                    <p class="opacity-90">Protect your operations with robust cyber defense and encrypted communication layers.</p>
+                                    <p class="opacity-90">Protect your operations with robust cyber defense and
+                                        encrypted communication layers.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="#contact" class="btn-hover-effect group inline-flex items-center bg-white text-primary-700 py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">
+                        <a href="/contact-us.html"
+                            class="btn-hover-effect group inline-flex items-center bg-white text-primary-700 py-3 px-8 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">
                             Get a Free Strategy Consultation
-                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
                     </div>
-                    
+
                     <!-- Image Side -->
                     <div class="relative" data-aos="fade-left" data-aos-duration="1000">
                         <div class="absolute -inset-4 bg-white/20 rounded-2xl blur-xl"></div>
                         <div class="relative z-10 overflow-hidden rounded-2xl shadow-2xl border-4 border-white/20">
-                            <img src="/assets/images/composite-image-business-people-applauding-meeting_1134-69249.jpg" alt="Digital Strategy Team" 
+                            <img src="/assets/images/composite-image-business-people-applauding-meeting_1134-69249.jpg"
+                                alt="Digital Strategy Team"
                                 class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
                         </div>
-                        
+
                         <!-- Decorative Elements -->
                         <div class="absolute top-1/2 -right-16 w-32 h-32 bg-primary-600/30 rounded-full blur-2xl"></div>
-                        <div class="absolute -bottom-10 left-1/2 w-20 h-20 bg-primary-400/30 rounded-full blur-xl"></div>
+                        <div class="absolute -bottom-10 left-1/2 w-20 h-20 bg-primary-400/30 rounded-full blur-xl">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -780,58 +842,75 @@
         <!-- Solutions Section -->
         <section class="py-24 bg-primary-50 relative overflow-hidden">
             <!-- Decorative Elements -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-primary-100 rounded-full opacity-70 -translate-y-1/2 translate-x-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-100 rounded-full opacity-70 translate-y-1/2 -translate-x-1/2"></div>
-            
+            <div
+                class="absolute top-0 right-0 w-64 h-64 bg-primary-100 rounded-full opacity-70 -translate-y-1/2 translate-x-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-80 h-80 bg-primary-100 rounded-full opacity-70 translate-y-1/2 -translate-x-1/2">
+            </div>
+
             <div class="container mx-auto px-4 relative z-10">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <!-- Image Side -->
                     <div class="relative order-2 md:order-1" data-aos="fade-right" data-aos-duration="1000">
                         <div class="relative z-10 overflow-hidden rounded-2xl shadow-xl">
-                            <img src="/assets/images/everyone-doing-his-job-young-people-working-call-center-new-deals-is-coming.jpg" alt="Team at work" 
+                            <img src="/assets/images/everyone-doing-his-job-young-people-working-call-center-new-deals-is-coming.jpg"
+                                alt="Team at work"
                                 class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
                         </div>
-                        
+
                         <!-- Floating Elements -->
                         <div class="absolute -top-6 -left-6 w-16 h-16 bg-primary-200 rounded-full animate-float"></div>
-                        <div class="absolute -bottom-8 -right-8 w-20 h-20 bg-primary-300 rounded-full animate-float" style="animation-delay: 1.5s;"></div>
+                        <div class="absolute -bottom-8 -right-8 w-20 h-20 bg-primary-300 rounded-full animate-float"
+                            style="animation-delay: 1.5s;"></div>
                     </div>
-                    
+
                     <!-- Content Side -->
                     <div class="order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
-                        <div class="inline-block px-3 py-1 bg-primary-200 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                        <div
+                            class="inline-block px-3 py-1 bg-primary-200 text-primary-800 rounded-full text-sm font-semibold mb-4">
                             Our Solutions
                         </div>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                             Your Partner in <span class="text-primary-600">Next-Gen</span> Telecom Solutions
                         </h2>
                         <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                            Zeesonic Technology delivers secure, scalable, and cost-effective telecom and VOIP solutions. Our goal is to future-proof your communications infrastructure and empower your business success.
+                            Zeesonic Technology delivers secure, scalable, and cost-effective telecom and VOIP
+                            solutions. Our goal is to future-proof your communications infrastructure and empower your
+                            business success.
                         </p>
-                        
+
                         <div class="space-y-5 mb-8">
-                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md transform hover:translate-y-[-5px] transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md transform hover:translate-y-[-5px] transition-transform duration-300"
+                                data-aos="fade-up" data-aos-delay="100">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                                     <i class="fas fa-signal text-primary-600 text-xl"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Advanced Telecom Infrastructure</h4>
-                                    <p class="text-gray-600 text-sm">Enterprise-grade systems with 99.9% uptime guarantee</p>
+                                    <p class="text-gray-600 text-sm">Enterprise-grade systems with 99.9% uptime
+                                        guarantee</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md transform hover:translate-y-[-5px] transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md transform hover:translate-y-[-5px] transition-transform duration-300"
+                                data-aos="fade-up" data-aos-delay="200">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                                     <i class="fas fa-voicemail text-primary-600 text-xl"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900">Reliable, High-Quality VOIP Services</h4>
-                                    <p class="text-gray-600 text-sm">Crystal-clear voice quality with minimal latency</p>
+                                    <p class="text-gray-600 text-sm">Crystal-clear voice quality with minimal latency
+                                    </p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md transform hover:translate-y-[-5px] transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
+
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md transform hover:translate-y-[-5px] transition-transform duration-300"
+                                data-aos="fade-up" data-aos-delay="300">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                                     <i class="fas fa-tools text-primary-600 text-xl"></i>
                                 </div>
                                 <div>
@@ -840,10 +919,12 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <a href="/solutions" class="btn-hover-effect group inline-flex items-center bg-primary-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition duration-300">
+
+                        <a href="/services.html"
+                            class="btn-hover-effect group inline-flex items-center bg-primary-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition duration-300">
                             View All Solutions
-                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
                     </div>
                 </div>
@@ -854,17 +935,19 @@
         <section id="services" class="py-24 bg-white relative overflow-hidden">
             <!-- Decorative Elements -->
             <div class="absolute top-0 left-0 w-full h-20 bg-primary-50"></div>
-            
+
             <div class="container mx-auto px-4 relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                    <div
+                        class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
                         What We Offer
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                         Our Core Services
                     </h2>
                     <p class="text-gray-600 text-lg">
-                        Explore the suite of services we provide to enhance digital connectivity, efficiency, and customer experience.
+                        Explore the suite of services we provide to enhance digital connectivity, efficiency, and
+                        customer experience.
                     </p>
                 </div>
 
@@ -873,18 +956,21 @@
                     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-card-inner">
                             <!-- Front -->
-                            <div class="service-card-front bg-gradient-to-br from-primary-50 to-white p-8 flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-all duration-300">
-                                <div class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                            <div
+                                class="service-card-front bg-gradient-to-br from-primary-50 to-white p-8 flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <div
+                                    class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center mb-6">
                                     <i class="fas fa-phone-volume text-4xl text-primary-600"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold mb-3 text-gray-900">Telecom Solutions</h3>
-                                <p class="text-gray-600">Boost connectivity and optimize networks with tailored telecom strategies.</p>
+                                <p class="text-gray-600">Boost connectivity and optimize networks with tailored telecom
+                                    strategies.</p>
                                 <div class="mt-6 text-primary-600">
                                     <span class="text-sm">Flip for details</span>
                                     <i class="fas fa-sync-alt ml-2 animate-spin-slow"></i>
                                 </div>
                             </div>
-                            
+
                             <!-- Back -->
                             <div class="service-card-back bg-primary-600 p-8 text-white flex flex-col justify-between">
                                 <div>
@@ -908,29 +994,33 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="/services/telecom-solutions" class="btn-hover-effect inline-block text-center py-2 px-6 bg-white text-primary-600 rounded-full font-medium">
-                                    Learn More
+                                <a href="/contact-us.html"
+                                    class="btn-hover-effect inline-block text-center py-2 px-6 bg-white text-primary-600 rounded-full font-medium">
+                                    Enquire Now
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Service Card 2 -->
                     <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-card-inner">
                             <!-- Front -->
-                            <div class="service-card-front bg-gradient-to-br from-primary-50 to-white p-8 flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-all duration-300">
-                                <div class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                            <div
+                                class="service-card-front bg-gradient-to-br from-primary-50 to-white p-8 flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <div
+                                    class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center mb-6">
                                     <i class="fas fa-network-wired text-4xl text-primary-600"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold mb-3 text-gray-900">VOIP Services</h3>
-                                <p class="text-gray-600">Crystal-clear, cost-efficient voice communication across your business.</p>
+                                <p class="text-gray-600">Crystal-clear, cost-efficient voice communication across your
+                                    business.</p>
                                 <div class="mt-6 text-primary-600">
                                     <span class="text-sm">Flip for details</span>
                                     <i class="fas fa-sync-alt ml-2 animate-spin-slow"></i>
                                 </div>
                             </div>
-                            
+
                             <!-- Back -->
                             <div class="service-card-back bg-primary-600 p-8 text-white flex flex-col justify-between">
                                 <div>
@@ -954,29 +1044,33 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="/services/voip-services" class="btn-hover-effect inline-block text-center py-2 px-6 bg-white text-primary-600 rounded-full font-medium">
-                                    Learn More
+                                <a href="/contact-us.html"
+                                    class="btn-hover-effect inline-block text-center py-2 px-6 bg-white text-primary-600 rounded-full font-medium">
+                                    Enquire Now
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Service Card 3 -->
                     <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-card-inner">
                             <!-- Front -->
-                            <div class="service-card-front bg-gradient-to-br from-primary-50 to-white p-8 flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-all duration-300">
-                                <div class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center mb-6">
+                            <div
+                                class="service-card-front bg-gradient-to-br from-primary-50 to-white p-8 flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <div
+                                    class="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center mb-6">
                                     <i class="fas fa-headset text-4xl text-primary-600"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold mb-3 text-gray-900">Call Center Support</h3>
-                                <p class="text-gray-600">Seamless technical assistance and operational support for client success.</p>
+                                <p class="text-gray-600">Seamless technical assistance and operational support for
+                                    client success.</p>
                                 <div class="mt-6 text-primary-600">
                                     <span class="text-sm">Flip for details</span>
                                     <i class="fas fa-sync-alt ml-2 animate-spin-slow"></i>
                                 </div>
                             </div>
-                            
+
                             <!-- Back -->
                             <div class="service-card-back bg-primary-600 p-8 text-white flex flex-col justify-between">
                                 <div>
@@ -1000,16 +1094,18 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="/services/call-center-support" class="btn-hover-effect inline-block text-center py-2 px-6 bg-white text-primary-600 rounded-full font-medium">
-                                    Learn More
+                                <a href="/contact-us.html"
+                                    class="btn-hover-effect inline-block text-center py-2 px-6 bg-white text-primary-600 rounded-full font-medium">
+                                    Enquire Now
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
-                    <a href="/services" class="btn-hover-effect inline-flex items-center bg-primary-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition duration-300">
+                    <a href="/services.html"
+                        class="btn-hover-effect inline-flex items-center bg-primary-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition duration-300">
                         View All Services
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -1020,52 +1116,60 @@
         <!-- Why Choose Us Section -->
         <section class="py-24 animated-gradient text-white relative overflow-hidden">
             <!-- Decorative Elements -->
-           <div class="absolute inset-0 bg-[url('/assets/images/woman-enjoying-vr-headset_53876-94581.jpg')] bg-no-repeat bg-cover bg-center opacity-30"></div>
+            <div
+                class="absolute inset-0 bg-[url('/assets/images/woman-enjoying-vr-headset_53876-94581.jpg')] bg-no-repeat bg-cover bg-center opacity-30">
+            </div>
 
-            
+
             <div class="container mx-auto px-4 relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4">
+                    <div
+                        class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-4">
                         Why Choose Us
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">
                         Why Choose Zeesonic Technology?
                     </h2>
                     <p class="text-lg opacity-90">
-                        Trusted by businesses worldwide, we deliver scalable and secure telecom solutions tailored to drive long-term success.
+                        Trusted by businesses worldwide, we deliver scalable and secure telecom solutions tailored to
+                        drive long-term success.
                     </p>
                 </div>
 
                 <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
                     <!-- Feature 1 -->
-                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up"
+                        data-aos-delay="100">
                         <div class="w-20 h-20 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-6">
                             <i class="fas fa-briefcase text-4xl"></i>
                         </div>
                         <h4 class="font-semibold text-xl mb-3">10+ Years Experience</h4>
                         <p class="text-sm opacity-90">Proven track record in telecom innovation and support.</p>
                     </div>
-                    
+
                     <!-- Feature 2 -->
-                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up"
+                        data-aos-delay="200">
                         <div class="w-20 h-20 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-6">
                             <i class="fas fa-users text-4xl"></i>
                         </div>
                         <h4 class="font-semibold text-xl mb-3">Expert Professionals</h4>
                         <p class="text-sm opacity-90">Skilled teams focused on scalable enterprise-grade systems.</p>
                     </div>
-                    
+
                     <!-- Feature 3 -->
-                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up"
+                        data-aos-delay="300">
                         <div class="w-20 h-20 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-6">
                             <i class="fas fa-tools text-4xl"></i>
                         </div>
                         <h4 class="font-semibold text-xl mb-3">Tailored Solutions</h4>
                         <p class="text-sm opacity-90">Built to solve your specific challenges and growth goals.</p>
                     </div>
-                    
+
                     <!-- Feature 4 -->
-                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl text-center hover-card" data-aos="fade-up"
+                        data-aos-delay="400">
                         <div class="w-20 h-20 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-6">
                             <i class="fas fa-shield-alt text-4xl"></i>
                         </div>
@@ -1073,24 +1177,24 @@
                         <p class="text-sm opacity-90">Built-in security & data protection across all platforms.</p>
                     </div>
                 </div>
-                
+
                 <!-- Stats Counter -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center">
                     <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
                         <div class="text-4xl font-bold mb-2 counter" data-target="500">0</div>
                         <p class="text-sm opacity-80">Happy Clients</p>
                     </div>
-                    
+
                     <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
                         <div class="text-4xl font-bold mb-2 counter" data-target="1000">0</div>
                         <p class="text-sm opacity-80">Projects Completed</p>
                     </div>
-                    
+
                     <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
                         <div class="text-4xl font-bold mb-2 counter" data-target="50">0</div>
                         <p class="text-sm opacity-80">Team Members</p>
                     </div>
-                    
+
                     <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl" data-aos="fade-up" data-aos-delay="400">
                         <div class="text-4xl font-bold mb-2 counter" data-target="10">0</div>
                         <p class="text-sm opacity-80">Years of Experience</p>
@@ -1105,54 +1209,66 @@
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <!-- Content Side -->
                     <div data-aos="fade-right" data-aos-duration="1000">
-                        <div class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
+                        <div
+                            class="inline-block px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-semibold mb-4">
                             Our Mission
                         </div>
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                             Driving Innovation in <span class="text-primary-600">Telecom</span> Technology
                         </h2>
                         <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                            At Zeesonic Technology, we strive to deliver future-ready telecom infrastructure that is efficient, secure, and tailored for business innovation. Our mission is to power global communication systems with scalable technologies that fuel growth.
+                            At Zeesonic Technology, we strive to deliver future-ready telecom infrastructure that is
+                            efficient, secure, and tailored for business innovation. Our mission is to power global
+                            communication systems with scalable technologies that fuel growth.
                         </p>
-                        
+
                         <div class="space-y-4 mb-8">
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
                                     <i class="fas fa-check text-primary-600 text-sm"></i>
                                 </div>
                                 <p class="text-gray-700">Pioneering next-generation telecom solutions</p>
                             </div>
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
                                     <i class="fas fa-check text-primary-600 text-sm"></i>
                                 </div>
                                 <p class="text-gray-700">Empowering businesses with cutting-edge technology</p>
                             </div>
                             <div class="flex items-start gap-3">
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
+                                <div
+                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mt-1">
                                     <i class="fas fa-check text-primary-600 text-sm"></i>
                                 </div>
                                 <p class="text-gray-700">Creating sustainable communication infrastructure</p>
                             </div>
                         </div>
-                        
-                        <a href="/about" class="btn-hover-effect group inline-flex items-center bg-primary-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition duration-300">
+
+                        <a href="/about.html"
+                            class="btn-hover-effect group inline-flex items-center bg-primary-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition duration-300">
                             Learn More About Us
-                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                            <i
+                                class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
                     </div>
-                    
+
                     <!-- Image Side -->
                     <div class="relative" data-aos="fade-left" data-aos-duration="1000">
                         <div class="absolute -inset-4 bg-primary-100 rounded-full blur-xl"></div>
                         <div class="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
-                            <img src="/assets/images/mission-business-concept-finacial-success-chart-concept-virtual-screen-abstract-business-background_161452-5777.jpg" alt="Mission vision" 
+                            <img src="/assets/images/mission-business-concept-finacial-success-chart-concept-virtual-screen-abstract-business-background_161452-5777.jpg"
+                                alt="Mission vision"
                                 class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
                         </div>
-                        
+
                         <!-- Floating Elements -->
-                        <div class="absolute -top-10 -right-10 w-20 h-20 bg-primary-100 rounded-full opacity-70 animate-float"></div>
-                        <div class="absolute -bottom-8 -left-8 w-16 h-16 bg-primary-200 rounded-full opacity-70 animate-float" style="animation-delay: 1s;"></div>
+                        <div
+                            class="absolute -top-10 -right-10 w-20 h-20 bg-primary-100 rounded-full opacity-70 animate-float">
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 w-16 h-16 bg-primary-200 rounded-full opacity-70 animate-float"
+                            style="animation-delay: 1s;"></div>
                     </div>
                 </div>
             </div>
@@ -1161,43 +1277,38 @@
         <!-- CTA Section -->
         <section class="py-20 bg-primary-50 relative overflow-hidden">
             <!-- Decorative Elements -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-primary-100 rounded-full opacity-70 -translate-y-1/2 translate-x-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-100 rounded-full opacity-70 translate-y-1/2 -translate-x-1/2"></div>
-            
+            <div
+                class="absolute top-0 right-0 w-64 h-64 bg-primary-100 rounded-full opacity-70 -translate-y-1/2 translate-x-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-80 h-80 bg-primary-100 rounded-full opacity-70 translate-y-1/2 -translate-x-1/2">
+            </div>
+
             <div class="container mx-auto px-4 relative z-10">
                 <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                         Let's Build the Future of Communication Together
                     </h2>
                     <p class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
-                        Partner with Zeesonic for agile, custom-built telecom solutions designed to help your organization thrive in the digital era.
+                        Partner with Zeesonic for agile, custom-built telecom solutions designed to help your
+                        organization thrive in the digital era.
                     </p>
-                    <a href="/contact" class="btn-hover-effect group inline-flex items-center bg-primary-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition-all duration-300">
+                    <a href="/contact-us.html"
+                        class="btn-hover-effect group inline-flex items-center bg-primary-600 text-white px-8 py-4 rounded-full font-semibold shadow-lg shadow-primary-500/20 hover:bg-primary-700 transition-all duration-300">
                         Contact Us Today
-                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                        <i
+                            class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="relative bg-gradient-to-t from-primary-950 via-primary-900 to-primary-800 overflow-hidden">
-        <!-- Wave Divider -->
-        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none transform rotate-180">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px]">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#f0f5ff"></path>
-            </svg>
-        </div>
-        
-        <!-- Animated Particles -->
-        <div class="absolute inset-0 z-0">
-            <div id="footer-particles-js"></div>
-        </div>
-        
-        <div class="container relative mx-auto px-4 py-16 md:py-20 z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
-                <!-- Company Info -->
-                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none" data-aos="fade-up" data-aos-delay="100">
+  <footer class="relative bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 overflow-hidden">
+
+        <div class="container relative mx-auto px-4 py-10 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
                     <div class="z-10">
                         <h3 class="text-2xl font-bold mb-4 text-white">Zeesonic Technology</h3>
                         <p class="mb-6 text-sm md:text-base text-slate-300">Your dedicated partner in next-gen telecom
@@ -1205,82 +1316,81 @@
                             call center businesses.</p>
                         <div class="flex space-x-4">
                             <a href="#" aria-label="Facebook"
-                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                                 <i class="fab fa-facebook-f text-white"></i>
                             </a>
                             <a href="#" aria-label="Twitter"
-                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                                 <i class="fab fa-twitter text-white"></i>
                             </a>
                             <a href="#" aria-label="LinkedIn"
-                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
                                 <i class="fab fa-linkedin-in text-white"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Contact Info -->
-                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none" data-aos="fade-up" data-aos-delay="200">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
                     <div class="z-10">
                         <h3 class="text-xl font-semibold mb-4 text-white">Contact Info</h3>
-                        <ul class="space-y-4 text-sm md:text-base text-slate-300">
+                        <ul class="space-y-3 text-sm md:text-base text-slate-300">
                             <li class="flex items-start">
-                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-300"></i>
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-indigo-300"></i>
                                 <span>123 Tech Plaza, Suite 500, San Francisco, CA 94103</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fas fa-phone-alt mt-1 mr-3 text-primary-300"></i>
+                                <i class="fas fa-phone-alt mt-1 mr-3 text-indigo-300"></i>
                                 <span>+1 (555) 000-0000</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fas fa-envelope mt-1 mr-3 text-primary-300"></i>
+                                <i class="fas fa-envelope mt-1 mr-3 text-indigo-300"></i>
                                 <span>info@zeesonic.com</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fas fa-clock mt-1 mr-3 text-primary-300"></i>
+                                <i class="fas fa-clock mt-1 mr-3 text-indigo-300"></i>
                                 <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Services -->
-                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none" data-aos="fade-up" data-aos-delay="300">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
                     <div class="z-10">
                         <h3 class="text-xl font-semibold mb-4 text-white">Our Services</h3>
                         <ul class="space-y-2 text-white">
-                            <li><a class="flex text-sm md:text-base items-center hover:text-primary-300 transition-colors duration-300 w-full py-1 px-0"
-                                    href="/services/telecom-solutions">
-                                    <i class="fas fa-chevron-right text-xs mr-2 text-primary-300"></i>Telecom Solutions
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/asterisk-IPPBX-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Asterisk IPPBX
+                                    Services
                                 </a></li>
-                            <li><a class="flex text-sm md:text-base items-center hover:text-primary-300 transition-colors duration-300 w-full py-1 px-0"
-                                    href="/services/voip-services">
-                                    <i class="fas fa-chevron-right text-xs mr-2 text-primary-300"></i>VOIP Services
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/cyber-security-for-calls-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Cybersecurity for
+                                    Calls Services
                                 </a></li>
-                            <li><a class="flex text-sm md:text-base items-center hover:text-primary-300 transition-colors duration-300 w-full py-1 px-0"
-                                    href="/services/call-center-support">
-                                    <i class="fas fa-chevron-right text-xs mr-2 text-primary-300"></i>Call Center Support
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/linux-server-security-services-by-zeeSonic.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Linux Server
+                                    Security Services
                                 </a></li>
-                            <li><a class="flex text-sm md:text-base items-center hover:text-primary-300 transition-colors duration-300 w-full py-1 px-0"
-                                    href="/services/software-installation">
-                                    <i class="fas fa-chevron-right text-xs mr-2 text-primary-300"></i>Software
-                                    Installation
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/network-security-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Network Security
+                                    Services
                                 </a></li>
-                            <li><a class="flex text-sm md:text-base items-center hover:text-primary-300 transition-colors duration-300 w-full py-1 px-0"
-                                    href="/services/security-services">
-                                    <i class="fas fa-chevron-right text-xs mr-2 text-primary-300"></i>Security Services
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/Routing-switching-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Routing & Switching
+                                    Calls Services
                                 </a></li>
-                            <li><a class="flex text-sm md:text-base items-center hover:text-primary-300 transition-colors duration-300 w-full py-1 px-0"
-                                    href="/services/vicidial-dialer">
-                                    <i class="fas fa-chevron-right text-xs mr-2 text-primary-300"></i>Vicidial Dialer
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/softswitch-billing-errors.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Softswitch Billing
+                                    & Dial Plan Fix Services
                                 </a></li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Newsletter -->
-                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none" data-aos="fade-up" data-aos-delay="400">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
                     <div class="z-10">
                         <h3 class="text-xl font-semibold mb-4 text-white">Newsletter</h3>
                         <p class="mb-6 text-slate-300">Subscribe to our newsletter to receive updates and industry
@@ -1288,29 +1398,21 @@
                         <form class="space-y-4">
                             <div class="relative">
                                 <input type="email" placeholder="Your Email Address"
-                                    class="w-full px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-primary-400 text-gray-800"
+                                    class="w-full px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-indigo-400 text-gray-800"
                                     required>
                             </div>
                             <button type="submit"
-                                class="btn-hover-effect w-full bg-white text-primary-700 hover:bg-gray-100 font-medium py-3 px-4 rounded-full transition-all duration-300 shadow-lg">
-                                <i class="fas fa-paper-plane mr-2"></i>
+                                class="btn-primary w-full bg-white text-indigo-900 hover:bg-gray-100 font-medium py-3 px-4 rounded-full transition-all duration-300">
                                 Subscribe Now
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
-            
-            <!-- Copyright -->
-            <div class="mt-12 pt-6 border-t border-slate-700/50 text-center text-slate-400 text-sm">
+            <div class="mt-10 pt-6 border-t border-slate-700/50 text-center text-slate-400 text-sm">
                 <p>© 2025 Zeesonic Technology. All rights reserved.</p>
             </div>
         </div>
-        
-        <!-- Back to Top Button -->
-        <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center shadow-lg hover:bg-primary-700 transition-all duration-300 opacity-0 invisible z-50">
-            <i class="fas fa-arrow-up"></i>
-        </button>
     </footer>
 
     <!-- Scripts -->
@@ -1379,7 +1481,7 @@
             window.addEventListener("scroll", function () {
                 const header = document.querySelector(".sticky-header");
                 const backToTop = document.getElementById("backToTop");
-                
+
                 if (window.scrollY > 50) {
                     header.classList.add("scrolled");
                     backToTop.classList.remove("opacity-0", "invisible");
@@ -1392,7 +1494,7 @@
             });
 
             // Back to Top
-            document.getElementById("backToTop").addEventListener("click", function() {
+            document.getElementById("backToTop").addEventListener("click", function () {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
@@ -1426,7 +1528,7 @@
                     observer.unobserve(counterSection);
                 }
             });
-            
+
             observer.observe(counterSection);
 
             // Initialize Particles.js
@@ -1582,4 +1684,5 @@
         });
     </script>
 </body>
+
 </html>

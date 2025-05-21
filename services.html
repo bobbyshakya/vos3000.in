@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Our Services - Zeesonic Technology</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"> <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f5ff',
+                            100: '#e0eaff',
+                            200: '#c7d9ff',
+                            300: '#a4beff',
+                            400: '#7a96ff',
+                            500: '#5b6af9',
+                            600: '#4146eb',
+                            700: '#3538d2',
+                            800: '#2d31a8',
+                            900: '#2c3282',
+                            950: '#1a1d4c',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-in-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                    transitionProperty: {
+                        'height': 'height',
+                        'spacing': 'margin, padding',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            color: #333; /* Default text color */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Improved card hover effects based on reference page's .hover-card */
+        .hover-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hover-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fade-in animation for elements */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Page Loader Styles */
+        #pageLoader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff; /* White background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        #pageLoader .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4146eb; /* Primary color */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body class="antialiased text-gray-800">
+
+    <div id="pageLoader">
+        <div class="loader"></div>
+    </div>
+
+  
+    <header class="relative">
+        <nav class="sticky-header py-3 bg-white/80 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-4 lg:px-6 flex items-center justify-between relative">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-white z-10" aria-label="Zeesonic Technology Home">
+                    <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/">Home</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/about.html">About</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-gray-800 hover:text-primary-600 font-medium">
+                            Services
+                            <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 top-full mt-2 hidden group-hover:block bg-white border shadow-lg rounded-md w-[300px] z-50">
+                            <a href="/services/asterisk-IPPBX-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">asterisk-IPPBX-services.html</a>
+                            <a href="/services/cyber-security-for-calls-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Cybersecurity for Calls Services</a>
+                            <a href="/services/linux-server-security-services-by-zeeSonic.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Linux Server Security Services</a>
+                            <a href="/services/network-security-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Network Security Services</a>
+                            <a href="/services/Routing-switching-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Routing & Switching Calls Services</a>
+                            <a href="/services/softswitch-billing-errors.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Softswitch Billing & Dial Plan Fix
+                                Services</a>
+                            <a href="/services/softswitch-installation-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100"> Softswitch Installation Services</a>
+                            <a href="/services/vicidial-dialer-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Vicidial Dialer Solutions</a>
+                        </div>
+                    </div>
+
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/terms-and-conditions.html">Terms
+                        And Conditions</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/privacy-policy.html">Privacy
+                        Policy</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/contact-us.html">Contact</a>
+
+                    <!-- Profile Button -->
+                    <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                        class="btn-primary inline-flex items-center justify-center gap-2 text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-6 py-2">
+                        Download Profile
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuButton" class="lg:hidden text-gray-800 hover:text-primary-600 z-20"
+                    aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" style="z-index: 9999999999 !important;"
+                    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 lg:hidden">
+                    <div class="flex justify-between items-center p-4 border-b">
+                        <a href="/" class="text-2xl font-bold">
+                            <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                        </a>
+                        <button id="closeMenu" class="text-gray-800 hover:text-primary-600" aria-label="Close menu">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-70px)]">
+                        <nav class="flex flex-col space-y-4">
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/">Home</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/about">About</a>
+
+                            <!-- Services Submenu -->
+                            <div>
+                                <p class="text-sm font-semibold text-gray-500 mb-2 px-4">Services</p>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/telecom-solutions">Telecom Solutions</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/voip-services">VOIP Services</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/call-center-support">Call Center Support</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/software-installation">Software Installation</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/security-services">Security Services</a>
+                            </div>
+
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/bpo-solutions">BPO Solutions</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/testimonials">Testimonials</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/contact">Contact</a>
+
+                            <!-- Profile Button -->
+                            <div class="pt-4">
+                                <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                                    class="btn-primary block text-center py-3 px-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-lg font-medium">
+                                    Download Company Profile
+                                </a>
+                            </div>
+
+                            <!-- Social Icons -->
+                            <div class="pt-4 flex justify-center space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-facebook-f text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-twitter text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-linkedin-in text-primary-600"></i>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="bg-gradient-to-r from-primary-900 to-primary-700 text-white py-20 md:py-32 relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-slide-up">
+                Innovative Telecom & IT Solutions
+            </h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 animate-fade-in delay-200">
+                Empowering your business with cutting-edge technology and unparalleled support for robust communication
+                and secure infrastructure.
+            </p>
+            <a href="#our-new-services"
+                class="bg-white text-primary-800 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out inline-block animate-slide-up delay-400">
+                Explore Our Services
+            </a>
+        </div>
+        <div class="absolute inset-0 z-0 opacity-20">
+            <svg class="w-full h-full" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="pattern-zigzag" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M0 5L5 0L10 5L5 10L0 5Z" class="text-primary-600 opacity-50"></path>
+                    </pattern>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-zigzag)"></rect>
+            </svg>
+        </div>
+    </section>
+
+    <section id="our-new-services" class="py-16 md:py-24 bg-primary-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16 fade-in-section">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                    Our Comprehensive <span class="text-primary-600">Service Offerings</span>
+                </h2>
+                <p class="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">
+                    Explore our specialized services designed to optimize your communication infrastructure, enhance
+                    security, and streamline operations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fas fa-phone-alt fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Asterisk IPPBX Services</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Implement robust and flexible IP-PBX solutions using Asterisk, tailored to your communication
+                        needs.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Custom IPPBX Setup
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Voicemail & IVR
+                            Configuration
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Scalable Call Management
+                        </li>
+                    </ul>
+                    <a href="/services/asterisk-IPPBX-services.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fas fa-shield-alt fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Cybersecurity for Calls Services</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Secure your voice communication infrastructure from threats with advanced cybersecurity measures.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> SIP Security & Encryption
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Fraud Prevention Systems
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Threat Detection & Response
+                        </li>
+                    </ul>
+                    <a href="/services/cyber-security-for-calls-services.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fab fa-linux fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Linux Server Security Services</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Protect your Linux servers with comprehensive security hardening and continuous monitoring.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Server Hardening & Audits
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Firewall Configuration
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Vulnerability Management
+                        </li>
+                    </ul>
+                    <a href="/services/linux-server-security-services-by-zeeSonic.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fas fa-network-wired fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Network Security Services</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Safeguard your network infrastructure with robust security solutions and proactive threat
+                        management.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Perimeter Security
+                            (Firewalls)
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Intrusion Detection Systems
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> VPN & Remote Access
+                            Security
+                        </li>
+                    </ul>
+                    <a href="/services/network-security-services.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fas fa-route fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Routing & Switching Calls Services</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Optimize your call routing and switching for efficient and reliable voice communication.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Dynamic Call Routing
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Least Cost Routing
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Traffic Management
+                        </li>
+                    </ul>
+                    <a href="/services/routing-switching-services.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fas fa-file-invoice-dollar fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Softswitch Billing & Dial Plan Fix Services</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Resolve billing discrepancies and optimize dial plans for accurate softswitch operations.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Billing Error Resolution
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Dial Plan Optimization
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> CDR Analysis & Reporting
+                        </li>
+                    </ul>
+                    <a href="/services/softswitch-billing-errors.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fas fa-cogs fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Softswitch Installation Services</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Professional installation and configuration of softswitch platforms for seamless VoIP
+                        operations.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Softswitch Deployment
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> System Integration
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Performance Tuning
+                        </li>
+                    </ul>
+                    <a href="/services/softswitch-installation-services.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-card flex flex-col fade-in-section">
+                    <div
+                        class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center mb-6 feature-icon">
+                        <i class="fas fa-headset fa-3x text-primary-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Vicidial Dialer Solutions</h3>
+                    <p class="text-gray-700 mb-4 flex-grow">
+                        Implement and optimize Vicidial dialer solutions for efficient call center management and
+                        outbound campaigns.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Vicidial Installation
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Campaign Management
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary-600 mt-1 mr-2"></i> Agent & Reporting Setup
+                        </li>
+                    </ul>
+                    <a href="/services/vicidial-dialer-services.html"
+                        class="text-primary-700 font-semibold hover:text-primary-900 flex items-center justify-end mt-auto">
+                        Learn More <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary-900 text-white py-16 md:py-20 fade-in-section">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Ready to Transform Your Business?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+                Contact us today to discuss your specific needs and discover how our expert solutions can drive your
+                success.
+            </p>
+            <a href="/contact-us.html"
+                class="bg-white text-primary-800 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out inline-block">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+     <footer class="relative bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 overflow-hidden">
+
+        <div class="container relative mx-auto px-4 py-10 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Zeesonic Technology</h3>
+                        <p class="mb-6 text-sm md:text-base text-slate-300">Your dedicated partner in next-gen telecom
+                            solutions, VOIP services, and technical support for telecom companies, VOIP providers, and
+                            call center businesses.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" aria-label="Facebook"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Contact Info</h3>
+                        <ul class="space-y-3 text-sm md:text-base text-slate-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>123 Tech Plaza, Suite 500, San Francisco, CA 94103</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>+1 (555) 000-0000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-3 text-indigo-300"></i>
+                                <span>info@zeesonic.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock mt-1 mr-3 text-indigo-300"></i>
+                                <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Our Services</h3>
+                        <ul class="space-y-2 text-white">
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/asterisk-IPPBX-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Asterisk IPPBX
+                                    Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/cyber-security-for-calls-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Cybersecurity for
+                                    Calls Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/linux-server-security-services-by-zeeSonic.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Linux Server
+                                    Security Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/network-security-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Network Security
+                                    Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/Routing-switching-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Routing & Switching
+                                    Calls Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/softswitch-billing-errors.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Softswitch Billing
+                                    & Dial Plan Fix Services
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Newsletter</h3>
+                        <p class="mb-6 text-slate-300">Subscribe to our newsletter to receive updates and industry
+                            insights.</p>
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <input type="email" placeholder="Your Email Address"
+                                    class="w-full px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-indigo-400 text-gray-800"
+                                    required>
+                            </div>
+                            <button type="submit"
+                                class="btn-primary w-full bg-white text-indigo-900 hover:bg-gray-100 font-medium py-3 px-4 rounded-full transition-all duration-300">
+                                Subscribe Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-700/50 text-center text-slate-400 text-sm">
+                <p>© 2025 Zeesonic Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Loader
+        window.addEventListener('load', () => {
+            const pageLoader = document.getElementById('pageLoader');
+            if (pageLoader) {
+                setTimeout(() => {
+                    pageLoader.style.opacity = '0';
+                    setTimeout(() => {
+                        pageLoader.style.display = 'none';
+                    }, 500);
+                }, 500); // Loader visible for 0.5s after page load
+            }
+        });
+
+        // Fade in elements on scroll
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        fadeInSections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initial check for elements already in viewport on load
+        window.addEventListener('DOMContentLoaded', () => {
+            fadeInSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    section.classList.add('is-visible');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

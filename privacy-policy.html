@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      primary: {
+                          50: '#f0f5ff',
+                          100: '#e0eaff',
+                          200: '#c7d9ff',
+                          300: '#a4beff',
+                          400: '#7a96ff',
+                          500: '#5b6af9',
+                          600: '#4146eb',
+                          700: '#3538d2',
+                          800: '#2d31a8',
+                          900: '#2c3282',
+                          950: '#1a1d4c',
+                      },
+                  },
+                  animation: {
+                      'fade-in': 'fadeIn 0.5s ease-in-out',
+                      'slide-up': 'slideUp 0.5s ease-in-out',
+                      'bounce-slow': 'bounce 3s infinite',
+                      'pulse-slow': 'pulse 3s infinite',
+                      'float': 'float 6s ease-in-out infinite',
+                      'spin-slow': 'spin 8s linear infinite',
+                  },
+                  keyframes: {
+                      fadeIn: {
+                          '0%': { opacity: '0' },
+                          '100%': { opacity: '1' },
+                      },
+                      slideUp: {
+                          '0%': { transform: 'translateY(20px)', opacity: '0' },
+                          '100%': { transform: 'translateY(0)', opacity: '1' },
+                      },
+                      float: {
+                          '0%, 100%': { transform: 'translateY(0)' },
+                          '50%': { transform: 'translateY(-10px)' },
+                      },
+                  },
+                  transitionProperty: {
+                      'height': 'height',
+                      'spacing': 'margin, padding',
+                  }
+              },
+          },
+      }
+  </script>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+   
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <title>Privacy Policy - Zeesonic Technology</title>
+  <meta name="title" content="Privacy Policy - Zeesonic Technology">
+  <meta name="description"
+      content="Learn about Zeesonic Technology's Privacy Policy, detailing how we collect, use, and protect your personal information.">
+  <meta name="keywords"
+      content="Privacy Policy, Data Protection, Information Security, Zeesonic Technology">
+  <meta name="author" content="Zeesonic Technology">
+  <meta name="robots" content="index, follow">
+
+  <style>
+      :root {
+          --primary-color: #4146eb;
+          --primary-dark: #2d31a8;
+          --primary-light: #c7d9ff;
+          --gradient-primary: linear-gradient(to right, #3538d2, #4146eb, #5b6af9);
+          --gradient-dark: linear-gradient(to right, #1a1d4c, #2c3282, #3538d2);
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          scroll-behavior: smooth;
+          overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+          font-family: 'Poppins', sans-serif;
+      }
+
+      /* Feature card hover effect */
+      .feature-card {
+          transition: all 0.4s ease;
+      }
+
+      .feature-card:hover {
+          transform: translateY(-10px);
+      }
+
+      .feature-card:hover .feature-icon {
+          background-color: var(--primary-color);
+          color: white;
+      }
+
+      /* Process step hover effect */
+      .process-step {
+          transition: all 0.4s ease;
+      }
+
+      .process-step:hover {
+          transform: scale(1.05);
+      }
+
+      .process-step:hover .step-number {
+          background-color: var(--primary-color);
+          color: white;
+      }
+
+      /* Animated gradient background */
+      .animated-gradient {
+          background: linear-gradient(-45deg, #1a1d4c, #2c3282, #3538d2, #4146eb);
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+      }
+
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+
+      /* Floating animation */
+      .floating {
+          animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+          0% {
+              transform: translateY(0px);
+          }
+          50% {
+              transform: translateY(-20px);
+          }
+          100% {
+              transform: translateY(0px);
+          }
+      }
+
+      /* Fade in animation */
+      .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+
+      /* Button hover effects */
+      .btn-hover-effect {
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          z-index: 1;
+      }
+
+      .btn-hover-effect:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+          z-index: -1;
+      }
+
+      .btn-hover-effect:hover:before {
+          width: 100%;
+      }
+
+      .btn-hover-effect:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Improved card hover effects */
+      .hover-card {
+          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .hover-card:hover {
+          transform: translateY(-15px) scale(1.03);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+  </style>
+</head>
+
+<body class="antialiased text-gray-800">
+  <div id="pageLoader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
+      <div class="flex flex-col items-center">
+          <div class="w-16 h-16 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin"></div>
+          <p class="mt-4 text-primary-800 font-medium">Loading Zeesonic...</p>
+      </div>
+  </div>
+ <header class="relative z-30">
+        <nav class="sticky-header py-3 bg-white/80 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-4 lg:px-6 flex items-center justify-between relative">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-white z-10" aria-label="Zeesonic Technology Home">
+                    <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/">Home</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/about.html">About</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-gray-800 hover:text-primary-600 font-medium">
+                            Services
+                            <i class="fas fa-chevron-down text-xs transition-transform"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 top-full mt-2 hidden group-hover:block bg-white border shadow-lg rounded-md w-[300px] z-50">
+                            <a href="/services/asterisk-IPPBX-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">asterisk-IPPBX-services.html</a>
+                            <a href="/services/cyber-security-for-calls-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Cybersecurity for Calls Services</a>
+                            <a href="/services/linux-server-security-services-by-zeeSonic.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Linux Server Security Services</a>
+                            <a href="/services/network-security-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Network Security Services</a>
+                            <a href="/services/Routing-switching-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Routing & Switching Calls Services</a>
+                            <a href="/services/softswitch-billing-errors.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Softswitch Billing & Dial Plan Fix
+                                Services</a>
+                            <a href="/services/softswitch-installation-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100"> Softswitch Installation Services</a>
+                            <a href="/services/vicidial-dialer-services.html"
+                                class="block px-4 py-3 text-sm hover:bg-gray-100">Vicidial Dialer Solutions</a>
+                        </div>
+                    </div>
+
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/terms-and-conditions.html">Terms
+                        And Conditions</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/privacy-policy.html">Privacy
+                        Policy</a>
+                    <a class="text-gray-800 hover:text-primary-600 font-medium" href="/contact-us.html">Contact</a>
+
+                    <!-- Profile Button -->
+                    <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                        class="btn-primary inline-flex items-center justify-center gap-2 text-sm font-medium bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-full px-6 py-2">
+                        Download Profile
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuButton" class="lg:hidden text-gray-800 hover:text-primary-600 z-20"
+                    aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" style="z-index: 9999999999 !important;"
+                    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 lg:hidden">
+                    <div class="flex justify-between items-center p-4 border-b">
+                        <a href="/" class="text-2xl font-bold">
+                            <img src="/logo.png" class="w-[120px]" alt="Zeesonic Technology Logo">
+                        </a>
+                        <button id="closeMenu" class="text-gray-800 hover:text-primary-600" aria-label="Close menu">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-70px)]">
+                        <nav class="flex flex-col space-y-4">
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/">Home</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/about">About</a>
+
+                            <!-- Services Submenu -->
+                            <div>
+                                <p class="text-sm font-semibold text-gray-500 mb-2 px-4">Services</p>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/telecom-solutions">Telecom Solutions</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/voip-services">VOIP Services</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/call-center-support">Call Center Support</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/software-installation">Software Installation</a>
+                                <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg"
+                                    href="/services/security-services">Security Services</a>
+                            </div>
+
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/bpo-solutions">BPO Solutions</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/testimonials">Testimonials</a>
+                            <a class="text-gray-800 hover:bg-gray-100 py-3 px-4 rounded-lg font-medium"
+                                href="/contact">Contact</a>
+
+                            <!-- Profile Button -->
+                            <div class="pt-4">
+                                <a target="_blank" href="/Zeesonic-Technology-Profile.pdf"
+                                    class="btn-primary block text-center py-3 px-6 bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 text-white rounded-lg font-medium">
+                                    Download Company Profile
+                                </a>
+                            </div>
+
+                            <!-- Social Icons -->
+                            <div class="pt-4 flex justify-center space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-facebook-f text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-twitter text-primary-600"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-primary-100">
+                                    <i class="fab fa-linkedin-in text-primary-600"></i>
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+  <main>
+      <section class="relative bg-white pt-20 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary-950/90 to-primary-900/90 z-10"></div>
+          <div class="absolute inset-0 bg-[url('/assets/images/cyber-security-network-protection-background.jpg')] bg-cover bg-center"></div>
+          
+          <div class="absolute inset-0 z-0">
+              <div id="particles-js"></div>
+          </div>
+          
+          <div class="container mx-auto px-4 py-20 md:py-32 relative z-20">
+              <div class="text-white text-center" data-aos="fade-up" data-aos-duration="1000">
+                  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                      Privacy <span class="text-primary-300">Policy</span>
+                  </h1>
+                  <p class="text-lg md:text-xl mb-8 text-gray-200 max-w-3xl mx-auto">
+                      At Zeesonic Technology, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner.
+                  </p>
+              </div>
+          </div>
+          
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px]">
+                  <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#ffffff"></path>
+              </svg>
+          </div>
+      </section>
+
+      <section class="py-20 bg-white overflow-hidden">
+          <div class="container mx-auto px-4 max-w-4xl">
+              <div class="space-y-8 text-gray-700 leading-relaxed text-lg">
+                  <p>This Privacy Policy outlines how we collect, use, and protect your information when you visit our website and interact with our services. By using our website, you agree to the terms and practices described in this policy.</p>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">1. Information We Collect</h2>
+                  <p>We collect both personal and non-personal information to enhance your experience and provide the services you request.</p>
+                  
+                  <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Personal Information:</h3>
+                  <ul class="list-disc list-inside space-y-2">
+                      <li><strong>Contact Information:</strong> When you contact us via email, phone, or through our online forms, we may collect personal details such as your name, email address, phone number, and company name.</li>
+                      <li><strong>Account Information:</strong> If you create an account with us or sign up for our services, we may collect additional information, such as billing details or business-related information.</li>
+                  </ul>
+
+                  <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Non-Personal Information:</h3>
+                  <ul class="list-disc list-inside space-y-2">
+                      <li><strong>Usage Data:</strong> We may collect information about how you interact with our website, including your IP address, browser type, pages visited, and the time spent on our site.</li>
+                      <li><strong>Cookies:</strong> We use cookies to enhance your experience on our website. Cookies are small files stored on your device that help us analyze web traffic and improve our services. You can choose to accept or decline cookies through your browser settings.</li>
+                  </ul>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">2. How We Use Your Information</h2>
+                  <p>We use the information we collect for several purposes, including:</p>
+                  <ul class="list-disc list-inside space-y-2">
+                      <li><strong>Providing Services:</strong> To deliver the services you request, respond to inquiries, and fulfill your orders.</li>
+                      <li><strong>Improving User Experience:</strong> To analyze website usage patterns, identify popular content, and optimize our website's performance and design.</li>
+                      <li><strong>Marketing and Communication:</strong> To send you updates, newsletters, promotional offers, and other relevant communications (you can opt-out at any time).</li>
+                      <li><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and legal processes.</li>
+                  </ul>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">3. Information Sharing and Disclosure</h2>
+                  <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+                  <ul class="list-disc list-inside space-y-2">
+                      <li><strong>Service Providers:</strong> We may engage trusted third-party service providers to assist us in operating our website, conducting business, or providing services to you (e.g., hosting, analytics, customer support). These providers are contractually obligated to protect your information and use it only for the purposes specified by us.</li>
+                      <li><strong>Legal Requirements:</strong> We may disclose your information if required by law, court order, or government regulation, or if we believe such disclosure is necessary to protect our rights, property, or safety, or the rights, property, or safety of others.</li>
+                      <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred to the acquiring entity.</li>
+                  </ul>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">4. Data Security</h2>
+                  <p>We implement a variety of security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. These measures include encryption, firewalls, secure socket layer (SSL) technology, and regular security audits. However, no data transmission over the internet or electronic storage method is 100% secure, and we cannot guarantee absolute security.</p>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">5. Data Retention</h2>
+                  <p>We retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, comply with legal obligations, and resolve disputes. When your information is no longer required, we will securely delete or anonymize it.</p>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">6. Your Rights and Choices</h2>
+                  <ul class="list-disc list-inside space-y-2">
+                      <li><strong>Access and Correction:</strong> You have the right to access and update your personal information. If you believe any of your information is inaccurate, please contact us to request corrections.</li>
+                      <li><strong>Deletion:</strong> You may request the deletion of your personal information, subject to legal requirements and our data retention policies.</li>
+                      <li><strong>Opting Out:</strong> You can opt out of receiving marketing communications from us at any time by following the unsubscribe instructions in the emails you receive.</li>
+                      <li><strong>Cookie Preferences:</strong> You can adjust your browser settings to manage cookies, including blocking or deleting cookies as per your preference.</li>
+                  </ul>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">7. Third-Party Links</h2>
+                  <p>Our website may contain links to third-party websites or services. We are not responsible for the privacy practices or content of these external sites. We encourage you to review their privacy policies before providing any personal information.</p>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">8. Children's Privacy</h2>
+                  <p>Our services are not directed to individuals under the age of 13, and we do not knowingly collect personal information from children. If we become aware that we have inadvertently collected personal information from a child, we will take steps to delete that information.</p>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">9. Changes to This Privacy Policy</h2>
+                  <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or industry standards. We will post any updates on this page with the effective date of the changes. Please review this policy periodically to stay informed about how we are protecting your information.</p>
+
+                  <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">10. Contact Us</h2>
+                  <p>If you have any questions or concerns about our Privacy Policy or how we handle your personal information, please feel free to contact us at:</p>
+                  <p class="font-semibold">Email: security@zeesonictech.com</p>
+                  <p class="font-semibold">Phone: +1 (123) 456-7890</p>
+              </div>
+          </div>
+      </section>
+
+      <section id="contact" class="py-20 bg-white relative overflow-hidden">
+          <div class="container mx-auto px-4 relative z-10">
+              <div class="bg-primary-900 rounded-2xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="text-center mb-8">
+                      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Questions About Our Privacy Policy?</h2>
+                      <p class="text-gray-300 text-lg">
+                          Contact us directly if you have any concerns or need further clarification regarding our data handling practices.
+                      </p>
+                  </div>
+                  
+                  <div class="grid md:grid-cols-2 gap-8">
+                      <div>
+                          <h3 class="text-xl font-semibold mb-4 text-primary-300">Get in Touch</h3>
+                          <form action="#" method="POST" class="space-y-4">
+                              <div>
+                                  <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                                  <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="Your name">
+                              </div>
+                              <div>
+                                  <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                                  <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="your@email.com">
+                              </div>
+                              <div>
+                                  <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
+                                  <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="Your phone number">
+                              </div>
+                              <div>
+                                  <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                                  <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-primary-800/50 border border-primary-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-white" placeholder="Tell us about your security requirements"></textarea>
+                              </div>
+                              <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2.5 px-4 rounded-lg transition duration-300 shadow-lg shadow-primary-500/20">
+                                  Submit Inquiry
+                              </button>
+                          </form>
+                      </div>
+                      
+                      <div class="flex flex-col justify-between">
+                          <div>
+                              <h3 class="text-xl font-semibold mb-4 text-primary-300">Why Contact Us?</h3>
+                              <ul class="space-y-4 text-gray-300">
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center mt-1">
+                                          <i class="fas fa-check text-primary-300 text-sm"></i>
+                                      </div>
+                                      <p>Clarify any section of our Privacy Policy</p>
+                                  </li>
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center mt-1">
+                                          <i class="fas fa-check text-primary-300 text-sm"></i>
+                                      </div>
+                                      <p>Exercise your data privacy rights</p>
+                                  </li>
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-700 flex items-center justify-center mt-1">
+                                          <i class="fas fa-check text-primary-300 text-sm"></i>
+                                      </div>
+                                      <p>Report any privacy concerns</p>
+                                  </li>
+                              </ul>
+                          </div>
+                          
+                          <div class="mt-8 bg-primary-800/50 p-6 rounded-lg">
+                              <h3 class="text-xl font-semibold mb-4 text-primary-300">Contact Information</h3>
+                              <ul class="space-y-4 text-gray-300">
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-700 flex items-center justify-center">
+                                          <i class="fas fa-phone-alt text-primary-300"></i>
+                                      </div>
+                                      <div>
+                                          <p class="font-medium text-white">Phone Number</p>
+                                          <p>+1 (123) 456-7890</p>
+                                      </div>
+                                  </li>
+                                  <li class="flex items-start gap-3">
+                                      <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-700 flex items-center justify-center">
+                                          <i class="fas fa-envelope text-primary-300"></i>
+                                      </div>
+                                      <div>
+                                          <p class="font-medium text-white">Email Address</p>
+                                          <p>security@zeesonictech.com</p>
+                                      </div>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+ <footer class="relative bg-gradient-to-t from-indigo-950 via-sky-950 to-indigo-900 overflow-hidden">
+
+        <div class="container relative mx-auto px-4 py-10 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Zeesonic Technology</h3>
+                        <p class="mb-6 text-sm md:text-base text-slate-300">Your dedicated partner in next-gen telecom
+                            solutions, VOIP services, and technical support for telecom companies, VOIP providers, and
+                            call center businesses.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" aria-label="Facebook"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-facebook-f text-white"></i>
+                            </a>
+                            <a href="#" aria-label="Twitter"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="#" aria-label="LinkedIn"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Contact Info</h3>
+                        <ul class="space-y-3 text-sm md:text-base text-slate-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>123 Tech Plaza, Suite 500, San Francisco, CA 94103</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-3 text-indigo-300"></i>
+                                <span>+1 (555) 000-0000</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-3 text-indigo-300"></i>
+                                <span>info@zeesonic.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock mt-1 mr-3 text-indigo-300"></i>
+                                <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Our Services</h3>
+                        <ul class="space-y-2 text-white">
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/asterisk-IPPBX-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Asterisk IPPBX
+                                    Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/cyber-security-for-calls-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Cybersecurity for
+                                    Calls Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/linux-server-security-services-by-zeeSonic.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Linux Server
+                                    Security Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/network-security-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Network Security
+                                    Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/Routing-switching-services.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Routing & Switching
+                                    Calls Services
+                                </a></li>
+                            <li><a class="flex text-sm md:text-base items-center hover:text-indigo-300 transition-colors w-full py-1 px-0"
+                                    href="/services/softswitch-billing-errors.html">
+                                    <i class="fas fa-chevron-right text-xs mr-2 text-indigo-300"></i>Softswitch Billing
+                                    & Dial Plan Fix Services
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rounded-lg text-card-foreground shadow-sm md:p-6 py-6 bg-transparent border-none">
+                    <div class="z-10">
+                        <h3 class="text-xl font-semibold mb-4 text-white">Newsletter</h3>
+                        <p class="mb-6 text-slate-300">Subscribe to our newsletter to receive updates and industry
+                            insights.</p>
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <input type="email" placeholder="Your Email Address"
+                                    class="w-full px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-indigo-400 text-gray-800"
+                                    required>
+                            </div>
+                            <button type="submit"
+                                class="btn-primary w-full bg-white text-indigo-900 hover:bg-gray-100 font-medium py-3 px-4 rounded-full transition-all duration-300">
+                                Subscribe Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-slate-700/50 text-center text-slate-400 text-sm">
+                <p>© 2025 Zeesonic Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <script>
+      // Initialize AOS
+      AOS.init({
+          once: true,
+          duration: 800,
+          offset: 100,
+      });
+      
+      // Particles.js
+      if (typeof particlesJS !== 'undefined') {
+          particlesJS("particles-js", {
+              "particles": {
+                  "number": {
+                      "value": 80,
+                      "density": {
+                          "enable": true,
+                          "value_area": 800
+                      }
+                  },
+                  "color": {
+                      "value": "#ffffff"
+                  },
+                  "shape": {
+                      "type": "circle",
+                      "stroke": {
+                          "width": 0,
+                          "color": "#000000"
+                      },
+                  },
+                  "opacity": {
+                      "value": 0.3,
+                      "random": false,
+                      "anim": {
+                          "enable": false,
+                          "speed": 1,
+                          "opacity_min": 0.1,
+                          "sync": false
+                      }
+                  },
+                  "size": {
+                      "value": 3,
+                      "random": true,
+                      "anim": {
+                          "enable": false,
+                          "speed": 40,
+                          "size_min": 0.1,
+                          "sync": false
+                      }
+                  },
+                  "line_linked": {
+                      "enable": true,
+                      "distance": 150,
+                      "color": "#ffffff",
+                      "opacity": 0.2,
+                      "width": 1
+                  },
+                  "move": {
+                      "enable": true,
+                      "speed": 2,
+                      "direction": "none",
+                      "random": false,
+                      "straight": false,
+                      "out_mode": "out",
+                      "bounce": false,
+                      "attract": {
+                          "enable": false,
+                          "rotateX": 600,
+                          "rotateY": 1200
+                      }
+                  }
+              },
+              "interactivity": {
+                  "detect_on": "canvas",
+                  "events": {
+                      "onhover": {
+                          "enable": true,
+                          "mode": "grab"
+                      },
+                      "onclick": {
+                          "enable": true,
+                          "mode": "push"
+                      },
+                      "resize": true
+                  },
+                  "modes": {
+                      "grab": {
+                          "distance": 140,
+                          "line_linked": {
+                              "opacity": 1
+                          }
+                      },
+                      "bubble": {
+                          "distance": 400,
+                          "size": 40,
+                          "duration": 2,
+                          "opacity": 8,
+                          "speed": 3
+                      },
+                      "repulse": {
+                          "distance": 200,
+                          "duration": 0.4
+                      },
+                      "push": {
+                          "particles_nb": 4
+                      },
+                      "remove": {
+                          "particles_nb": 2
+                      }
+                  }
+              },
+              "retina_detect": true
+          });
+      }
+      
+      // Page Loader
+      window.addEventListener('load', () => {
+          const pageLoader = document.getElementById('pageLoader');
+          if (pageLoader) {
+              setTimeout(() => {
+                  pageLoader.style.opacity = '0';
+                  setTimeout(() => {
+                      pageLoader.style.display = 'none';
+                  }, 500);
+              }, 500);
+          }
+      });
+      
+      // Fade in elements on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      function checkFade() {
+          fadeElements.forEach(element => {
+              const elementTop = element.getBoundingClientRect().top;
+              const windowHeight = window.innerHeight;
+              
+              if (elementTop < windowHeight - 100) {
+                  element.classList.add('visible');
+              }
+          });
+      }
+      
+      window.addEventListener('scroll', checkFade);
+      window.addEventListener('load', checkFade);
+  </script>
+</body>
+
+</html>
